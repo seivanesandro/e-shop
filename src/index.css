@@ -18,3 +18,47 @@ body {
     overflow-x: hidden !important;
     overflow-y: auto !important;
 }
+
+/*Navbar*/
+.search-style {
+    color: #ffd200 !important;
+    text-shadow: 0 0 0.1 #ffd200 !important;
+    outline: 1px double #ffd200 !important;
+    border: 1px double #ffd200 !important;
+}
+
+.search-style::placeholder {
+    color: #fff !important;
+    text-shadow: 0 0 0.1 #ffd200 !important;
+}
+
+.nav-Link {
+    color: #fff !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2 !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+.nav-Link:hover {
+    color: #ffd200 !important;
+    text-shadow: 0 0 0.1 #ffd200 !important;
+}
+
+.nav-Link:link {
+    color: #ffd200 !important;
+}
+
+.nav-Link::selection {
+    background: #ffd200 !important;
+    color: #333 !important;
+}
+
+.navbar .nav-Link.active {
+    color: #ffd200 !important;
+}
+
+/*footer*/
+.icon-style:hover {
+    color: #ffd200 !important;
+    text-shadow: 0 0 0.1rem black !important;
+}

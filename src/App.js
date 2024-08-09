@@ -1,6 +1,11 @@
+import HeaderNavBar from './components/navbar/Navbar';
+
 function App() {
     return (
-        <div className="App">E-shop commerce</div>
+        <div className="App">
+            <HeaderNavBar />
+            <h1> E-shop commerce</h1>
+        </div>
     );
 }
 
