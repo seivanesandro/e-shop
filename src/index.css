@@ -35,13 +35,14 @@ body {
 .nav-Link {
     color: #fff !important;
     font-weight: 700 !important;
-    letter-spacing: 0.2 !important;
+    letter-spacing: 0.2rem !important;
     text-decoration: none !important;
     outline: none !important;
 }
 .nav-Link:hover {
+    animation: 2s ease-in 1ms !important;
     color: #ffd200 !important;
-    text-shadow: 0 0 0.1 #ffd200 !important;
+    text-shadow: 0 0 0.1rem #ffd200 !important;
 }
 
 .nav-Link:link {
@@ -54,11 +55,51 @@ body {
 }
 
 .navbar .nav-Link.active {
+    animation: 2s ease-in 1ms !important;
     color: #ffd200 !important;
+    text-shadow: 0 0 0.1rem #ffd200 !important;
 }
 
-/*footer*/
-.icon-style:hover {
-    color: #ffd200 !important;
-    text-shadow: 0 0 0.1rem black !important;
+/*Card Product*/
+.card-product{}
+.header-card-product{}
+.infor-card-product{}
+.title-card-product{}
+.text-card-product{}
+.price-card-product{}
+.productid-card-product{}
+.footer-card-product{}
+.btn-card-product{}
+
+
+/*breakpoints*/
+
+@media only screen and (max-width: 2560px) {
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1230px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 430px) {
+}
+
+@media only screen and (max-width: 425px) {
+}
+
+@media only screen and (max-width: 375px) {
+}
+
+@media only screen and (max-width: 320px) {
+    .card-product{ 
+        width: 20rem !important;
+    }
 }

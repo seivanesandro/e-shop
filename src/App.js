@@ -1,10 +1,11 @@
 import HeaderNavBar from './components/navbar/Navbar';
+import Home from './pages/home/Home';
 
 function App() {
     return (
         <div className="App">
             <HeaderNavBar />
-            <h1> E-shop commerce</h1>
+            <Home />
         </div>
     );
 }

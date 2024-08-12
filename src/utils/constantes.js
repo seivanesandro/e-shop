@@ -30,6 +30,7 @@ High-res laptop or desktop: 1920 x 1080.
 media styled components 
 @media only screen and (${devices.fourk }) {}
 @media only screen and (${devices.portatilL }) {}
+@media only screen and (${devices.portatilS }) {}
 @media only screen and (${devices.portatil }) {}
 @media only screen and (${devices.tablet }) {}
 @media only screen and (${devices.iphone14 }) {}
@@ -42,6 +43,7 @@ media styled components
 media css 
 @media only screen and (max-width: 2560px) {}
 @media only screen and (max-width: 1440px) {}
+@media only screen and (max-width: 1230px) {}
 @media only screen and (max-width: 1024px) {}
 @media only screen and (max-width: 768px) {}
 @media only screen and (max-width: 430px) {}
@@ -58,8 +60,9 @@ const responsivePoints = {
     iphone14: '430px',
     tablet: '768px',
     portatil: '1024px',
+    portatilS: '1230px',
     portatilL: '1440px',
-    fourk: '2560px'
+    fourk: '1760px'
 };
 
 export const devices = {
@@ -68,6 +71,7 @@ export const devices = {
     mobileG: `( max-width: ${responsivePoints.mobileG} )`,
     iphone14: `( max-width: ${responsivePoints.iphone14} )`,
     tablet: `( max-width: ${responsivePoints.tablet} )`,
+    portatilS: `( max-width: ${responsivePoints.portatilS} )`,
     portatil: `( max-width: ${responsivePoints.portatil} )`,
     portatilL: `( max-width: ${responsivePoints.portatilL} )`,
     fourk: `( max-width: ${responsivePoints.fourk} )`

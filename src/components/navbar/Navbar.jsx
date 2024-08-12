@@ -6,6 +6,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import logonavbar from '../../assets/logonavbar.png';
 import { BsSearch } from 'react-icons/bs';
+import { BsBasket2Fill } from 'react-icons/bs';
+import { ImCart } from 'react-icons/im';
+
 //import { NavLink } from 'react-router-dom';
 
 function HeaderNavBar() {
@@ -15,7 +18,7 @@ function HeaderNavBar() {
                 <Navbar
                     key={expand}
                     expand={expand}
-                    className=" mb-3 color-light"
+                    className="color-light"
                     data-bs-theme="dark"
                     style={{
                         background: '#000000'
@@ -92,14 +95,25 @@ function HeaderNavBar() {
                                         className="nav-Link"
                                         title="shop"
                                     >
-                                        Shop
+                                        <ImCart
+                                            size={
+                                                30
+                                            }
+                                        />
                                     </Nav.Link>
                                     <Nav.Link
                                         href="#action3"
                                         className="nav-Link"
                                         title="cart"
                                     >
-                                        Cart
+                                        <BsBasket2Fill
+                                            size={
+                                                30
+                                            }
+                                        />
+                                        <span>
+                                            0
+                                        </span>
                                     </Nav.Link>
                                 </Nav>
                             </Offcanvas.Body>
