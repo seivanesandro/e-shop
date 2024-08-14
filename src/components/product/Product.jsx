@@ -4,6 +4,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { MdStarRate } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({
     productid,
@@ -12,94 +13,68 @@ const Product = ({
     price,
     rating
 }) => {
+    const navigate = useNavigate();
+    const addToCart = () => {
+         const product = [
+             {
+                 productid: productid,
+                 title: title,
+                 price: price,
+                 rate: rating
+             }
+         ];
+         navigate('/checkout');
+         return (
+             //TODO: dispatch provider method
+             console.log(product)
+             
+         );
+    }
     return (
         <>
-            <Card
-                style={{
-                    width: '21rem'
-                }}
-                className="card-product"
-            >
+            <Card className="card-product">
                 <Card.Header className="header-card-product">
                     <Card.Img
                         variant="top"
                         src={image}
-                        width={170}
-                        height={180}
+                        width={120}
+                        height={200}
                     />
                 </Card.Header>
-                <Card.Body
-                    className="infor-card-product"
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                        gap: '0.2rem'
-                    }}
-                >
-                    <Card.Title
-                        className="title-card-product"
-                        style={{
-                            textOverflow:
-                                'ellipsis',
-                            textIndent:
-                                '3em each-line',
-                            marginBottom: '2rem'
-                        }}
-                    >
+                <Card.Body className="infor-card-product">
+                    <Card.Title className="title-card-product">
                         {title}
                     </Card.Title>
 
-                    <Card.Text
-                        style={{
-                            display: 'flex',
-                            justifyContent:
-                                'flex-start',
-                            aligntItems: 'center',
-                            gap: '0.2rem'
-                        }}
-                    >
-                        {Array(rating)
-                            .fill()
-                            .map((_, i) => (
-                                <MdStarRate
-                                    color="gold"
-                                    size="25"
-                                />
-                            ))}
-                        <Card.Text
-                            className="price-card-product"
-                            style={{
-                                fontSize:
-                                    '1.7rem',
-                                fontWeight: '600',
-                                marginLeft:
-                                    '0.9rem'
-                            }}
-                        >
+                    <div className="main-card-product">
+                        <Card.Text className="body-card-product">
+                            {Array(rating)
+                                .fill()
+                                .map((_, i) => (
+                                    <MdStarRate
+                                        key={i}
+                                        color="gold"
+                                        size="25"
+                                    />
+                                ))}
+                        </Card.Text>
+                        <Card.Text className="price-card-product">
                             {price}€
                         </Card.Text>
-                    </Card.Text>
+                    </div>
 
                     <Card.Text className="productid-card-product">
                         <strong>ID:</strong>
                         {productid}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer
-                    className="footer-card-product"
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}
-                >
+                <Card.Footer className="footer-card-product">
                     <Button
                         variant="warning"
                         className="btn-card-product"
-                        style={{ width: '17rem' }}
+                        onClick={addToCart}
                     >
-                        Buy
+                        add cart
                     </Button>
                 </Card.Footer>
             </Card>

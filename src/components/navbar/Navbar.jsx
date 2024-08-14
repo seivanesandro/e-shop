@@ -7,11 +7,10 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import logonavbar from '../../assets/logonavbar.png';
 import { BsSearch } from 'react-icons/bs';
 import { BsBasket2Fill } from 'react-icons/bs';
-import { ImCart } from 'react-icons/im';
-
-//import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function HeaderNavBar() {
+ 
     return (
         <>
             {['xl'].map(expand => (
@@ -25,11 +24,15 @@ function HeaderNavBar() {
                     }}
                 >
                     <Container fluid>
-                        <Navbar.Brand href="#">
-                            <img
-                                src={logonavbar}
-                                alt="logo"
-                            />
+                        <Navbar.Brand>
+                            <NavLink to="/">
+                                <img
+                                    src={
+                                        logonavbar
+                                    }
+                                    alt="logo"
+                                />
+                            </NavLink>
                         </Navbar.Brand>
                         <Navbar.Toggle
                             aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -57,12 +60,14 @@ function HeaderNavBar() {
                                 <Offcanvas.Title
                                     id={`offcanvasNavbarLabel-expand-${expand}`}
                                 >
-                                    <img
-                                        src={
-                                            logonavbar
-                                        }
-                                        alt="logo"
-                                    />
+                                    <NavLink to='/'>
+                                        <img
+                                            src={
+                                                logonavbar
+                                            }
+                                            alt="logo"
+                                        />
+                                    </NavLink>
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body>
@@ -79,31 +84,45 @@ function HeaderNavBar() {
                                             className="me-2 search-style"
                                             aria-label="Search"
                                         />
-                                        <Button variant="warning">
+                                        <Button variant="warning" >
                                             <BsSearch />
                                         </Button>
                                     </Form>
-                                    <Nav.Link
-                                        href="#action1"
-                                        className="nav-Link"
+                                    <NavLink
+                                        to="/login"
+                                        className={({
+                                            isActive
+                                        }) =>
+                                            isActive
+                                                ? 'active nav-Link'
+                                                : 'nav-Link'
+                                        }
                                         title="login"
                                     >
                                         Login
-                                    </Nav.Link>
-                                    <Nav.Link
-                                        href="#action2"
-                                        className="nav-Link"
+                                    </NavLink>
+                                    <NavLink
+                                        to="/shop"
+                                        className={({
+                                            isActive
+                                        }) =>
+                                            isActive
+                                                ? 'active nav-Link'
+                                                : 'nav-Link'
+                                        }
                                         title="shop"
                                     >
-                                        <ImCart
-                                            size={
-                                                30
-                                            }
-                                        />
-                                    </Nav.Link>
-                                    <Nav.Link
-                                        href="#action3"
-                                        className="nav-Link"
+                                        Shop
+                                    </NavLink>
+                                    <NavLink
+                                        to="/checkout"
+                                        className={({
+                                            isActive
+                                        }) =>
+                                            isActive
+                                                ? 'active nav-Link'
+                                                : 'nav-Link'
+                                        }
                                         title="cart"
                                     >
                                         <BsBasket2Fill
@@ -114,7 +133,7 @@ function HeaderNavBar() {
                                         <span>
                                             0
                                         </span>
-                                    </Nav.Link>
+                                    </NavLink>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

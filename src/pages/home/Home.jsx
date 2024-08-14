@@ -5,7 +5,11 @@ import styled, {
 } from 'styled-components';
 import Hero from '../../assets/hero.jpg';
 import Product from '../../components/product/Product';
-import { productOne, productTwo, productThree } from '../../data/data';
+import {
+    productOne,
+    productTwo,
+    productThree
+} from '../../data/data';
 import { devices } from '../../utils/constantes';
 
 const Show = keyframes`
@@ -46,7 +50,6 @@ const HomeRowContainer = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     animation: ${Show} 1s linear;
-
 
     @media only screen and (${devices.portatil}) {
     }
@@ -134,7 +137,6 @@ const Home = props => {
                                     );
                                 }
                             )}
-                           
                         </HomeRow>
                         <HomeRow className="home-row">
                             {productTwo.map(
@@ -163,7 +165,6 @@ const Home = props => {
                                     );
                                 }
                             )}
-                            
                         </HomeRow>
                         <HomeRow className="home-row">
                             {productThree.map(
@@ -192,7 +193,6 @@ const Home = props => {
                                     );
                                 }
                             )}
-                            
                         </HomeRow>
                     </HomeRowContainer>
                 </HomeContainer>

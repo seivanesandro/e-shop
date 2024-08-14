@@ -23,13 +23,25 @@ body {
 .search-style {
     color: #ffd200 !important;
     text-shadow: 0 0 0.1 #ffd200 !important;
-    outline: 1px double #ffd200 !important;
-    border: 1px double #ffd200 !important;
+    outline: none !important;
+    border: none!important;
 }
 
 .search-style::placeholder {
     color: #fff !important;
     text-shadow: 0 0 0.1 #ffd200 !important;
+}
+.search-style:hover {
+    color: #ffd200 !important;
+    text-shadow: 0 0 0.1 #ffd200 !important;
+    outline: 1px double #ffd200 !important;
+    border: 1px double #ffd200 !important;
+}
+.search-style:focus {
+    color: #ffd200 !important;
+    text-shadow: 0 0 0.1 #ffd200 !important;
+    outline: 1px double #ffd200 !important;
+    border: 1px double #ffd200 !important;
 }
 
 .nav-Link {
@@ -39,41 +51,77 @@ body {
     text-decoration: none !important;
     outline: none !important;
 }
-.nav-Link:hover {
-    animation: 2s ease-in 1ms !important;
-    color: #ffd200 !important;
-    text-shadow: 0 0 0.1rem #ffd200 !important;
-}
+
 
 .nav-Link:link {
     color: #ffd200 !important;
 }
 
+.nav-Link:hover {
+    color: #ffd200 !important;
+}
 .nav-Link::selection {
     background: #ffd200 !important;
     color: #333 !important;
 }
 
 .navbar .nav-Link.active {
-    animation: 2s ease-in 1ms !important;
     color: #ffd200 !important;
-    text-shadow: 0 0 0.1rem #ffd200 !important;
+}
+/*home*/
+
+/*Product*/
+.card-product {
+    width: 21rem;
 }
 
-/*Card Product*/
-.card-product{}
-.header-card-product{}
-.infor-card-product{}
-.title-card-product{}
-.text-card-product{}
-.price-card-product{}
-.productid-card-product{}
-.footer-card-product{}
-.btn-card-product{}
+.infor-card-product {
+    display: flex;
+            flex-direction: column;
+                       align-items: flex-start;
+            gap: 0.2rem;
+}
+
+.title-card-product {
+    text-overflow: ellipsis;
+            text-indent: 3em each-line;
+            margin-bottom: 2rem;
+}
+.main-card-product{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.body-card-product {
+    display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.2rem;
+}
+
+.price-card-product {
+    font-size: 1.7rem;
+            font-weight: 600;
+            margin-left: 0.9rem;
+}
+
+.footer-card-product {
+    display: flex;
+            align-items: center;
+            justify-content: center;
+}
+
+.btn-card-product {
+    width: 17rem;
+}
+
+/*checkout*/
+/*checkoutproduct*/
+/*subtotal*/
+/*login*/
 
 
 /*breakpoints*/
-
 @media only screen and (max-width: 2560px) {
 }
 
@@ -99,7 +147,7 @@ body {
 }
 
 @media only screen and (max-width: 320px) {
-    .card-product{ 
+    .card-product {
         width: 20rem !important;
     }
 }

@@ -56,7 +56,7 @@ export const productThree = [
     {
         id: 0,
         productID: 20008887645,
-        title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+        title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - WQHD 5120 x 1440",
         price: 1094.99,
         rating: 4,
         image: 'https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg'
