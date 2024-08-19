@@ -11,7 +11,7 @@ const CheckoutProductContainer = styled.div`
     margin: 20px 1rem;
 `;
 const CheckoutProductImage = styled.img`
-    object-fit: contain;
+    object-fit: cover;
     width: 180px;
     height: 180px;
 `;
@@ -73,13 +73,16 @@ const CheckOutProduct = ({id, image, title, price}) => {
                   <CheckoutProductTitle className="checkout-product-title">
                       {title}
                   </CheckoutProductTitle>
-                  <CheckoutProductPrice className="checkout-product-price">
+                  <CheckoutProductPrice
+                      className="checkout-product-price"
+                      style={{ fontWeight: 600 }}
+                  >
                       Price: {price}
                       <small>€</small>
                   </CheckoutProductPrice>
                   <Button
                       variant="warning"
-                      className="btn-checkout-product"
+                      className="btn-card-product"
                   >
                       remove from Cart
                   </Button>

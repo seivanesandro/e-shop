@@ -114,6 +114,14 @@ body {
 .btn-card-product {
     width: 17rem;
 }
+.btn-card-product:focus {
+   outline: #333;
+   box-shadow: 0 0 0.2rem #000000;
+}
+.btn-card-product:hover {
+    outline: #333;
+        box-shadow: 0 0 0.2rem #000000;
+}
 
 /*checkout*/
 /*checkoutproduct*/

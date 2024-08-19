@@ -2,9 +2,32 @@ import React from 'react'
 //import PropTypes from 'prop-types'
 import CheckOutProduct from '../../components/checkoutProduct/CheckOutProduct';
 //import SubTotal from '../../components/subTotal/SubTotal';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import SubTotal from '../../components/subTotal/SubTotal';
 import { devices } from '../../utils/constantes';
+
+const Show = keyframes`
+    0%{
+        opacity:0;
+    }
+    50%{
+        opacity:0.5;
+    }
+
+    100%{
+        opacity:1;
+    }
+`;
+
+const ShowAd = keyframes`
+    0%{
+        opacity:0
+    }
+
+    50%{
+        opacity:1;
+    }
+`;
 
 const CheckOutContainer = styled.div`
     display: flex;
@@ -16,16 +39,20 @@ const CheckOutContainer = styled.div`
 `;
 const CheckOutAd = styled.img`
     width: 100%;
+    object-fit: cover;
     margin-bottom: 10px;
+
+    animation: ${ShowAd} 10s ease infinite;
 `;
 
 const CheckoutContainerMain = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 5rem;
     padding: 6rem 0 0 0;
+    animation: ${Show} 1s linear;
 
     @media only screen and (${devices.tablet}) {
         gap: 0;
@@ -47,10 +74,13 @@ const CheckoutContainerMain = styled.div`
 const CheckOutLeft = styled.div`
     display: flex;
     flex-direction: column;
+    animation: ${Show} 3s linear;
 `;
 const CheckOutRight = styled.div`
     display: block;
     margin: 5rem 0;
+    animation: ${Show} 3s linear;
+
     @media only screen and (${devices.iphone14}) {
         margin: 5rem 0;
     }
@@ -65,11 +95,11 @@ const CheckOutRight = styled.div`
     }
 `;
 const CheckOutBody = styled.div`
-        display: flex;
+    display: flex;
     gap: 7rem;
     flex-direction: column;
     align-items: flex-start;
-
+    
 `;
 
 
@@ -80,11 +110,11 @@ const Checkout = props => {
               <CheckOutAd
                   src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
                   alt=""
-                  className="checkout__ad"
+                  className="checkout-ad"
               />
               <CheckoutContainerMain className="checkout-container-main">
                   <CheckOutLeft className="checkout-left">
-                      <CheckOutBody className="checkout_body">
+                      <CheckOutBody className="checkout-body">
                           <CheckOutProduct
                               image="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
                               title="Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)"
