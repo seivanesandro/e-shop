@@ -94,9 +94,9 @@ body {
 }
 .body-card-product {
     display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 0.2rem;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .price-card-product {
