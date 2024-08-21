@@ -25,6 +25,16 @@ const Show = keyframes`
     }
 `;
 
+const ShowAd = keyframes`
+    0%{
+        opacity:0
+    }
+
+    50%{
+        opacity:1;
+    }
+`;
+
 const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -50,18 +60,20 @@ const HomeRowContainer = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     animation: ${Show} 1s linear;
+    margin-top: 7rem;
+    margin-bottom: 8rem;
 
-    @media only screen and (${devices.portatil}) {
-    }
-    @media only screen and (${devices.tablet}) {
-    }
     @media only screen and (${devices.iphone14}) {
+        gap: 3rem;
     }
     @media only screen and (${devices.mobileG}) {
+        gap: 3rem;
     }
     @media only screen and (${devices.mobileM}) {
+        gap: 3rem;
     }
     @media only screen and (${devices.mobileP}) {
+        gap: 3rem;
     }
 `;
 const HomeRow = styled.div`
@@ -83,23 +95,30 @@ const HomeRow = styled.div`
     }
     @media only screen and (${devices.iphone14}) {
         align-items: stretch;
-        gap: 2rem;
+        gap: 3rem;
     }
     @media only screen and (${devices.mobileG}) {
         align-items: stretch;
-        gap: 2rem;
+        gap: 3rem;
     }
     @media only screen and (${devices.mobileM}) {
         align-items: stretch;
-        gap: 2rem;
+        gap: 3rem;
     }
     @media only screen and (${devices.mobileP}) {
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
-        margin: 2rem auto;
+        gap: 3rem;
         justify-content: center;
+        margin: 3rem auto;
     }
+`;
+const CheckOutAd = styled.img`
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+
+    animation: ${ShowAd} 10s ease infinite;
 `;
 
 const Home = props => {
@@ -196,6 +215,11 @@ const Home = props => {
                             )}
                         </HomeRow>
                     </HomeRowContainer>
+                    <CheckOutAd
+                        src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
+                        alt=""
+                        className="checkout-ad"
+                    />
                 </HomeContainer>
             </div>
         </>
