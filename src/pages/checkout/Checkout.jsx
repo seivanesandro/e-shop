@@ -130,7 +130,12 @@ const Checkout = props => {
                                 rating={4}
                                 image="https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg"
                             />
-                            
+                            <CheckOutProduct
+                                title="IFB 30 L Convection Microwave Oven (30BRC2, Black, With Starter Kit)"
+                                price={239.0}
+                                rating={4}
+                                image="https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg"
+                            />
                         </CheckOutBody>
                     </CheckOutLeft>
 

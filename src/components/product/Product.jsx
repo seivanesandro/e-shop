@@ -36,8 +36,11 @@ const Product = ({
                     <Card.Img
                         variant="top"
                         src={image}
-                        width={120}
-                        height={200}
+                        width={180}
+                        height={180}
+                        style={{
+                            objectFit: 'contain'
+                        }}
                     />
                 </Card.Header>
                 <Card.Body className="infor-card-product">

@@ -12,7 +12,7 @@ const CheckoutProductContainer = styled.div`
     margin: 20px 1rem;
 `;
 const CheckoutProductImage = styled.img`
-    object-fit: cover;
+    object-fit: contain;
     width: 180px;
     height: 180px;
 `;
