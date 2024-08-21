@@ -106,7 +106,9 @@ const Home = props => {
     return (
         <>
             <div className="home">
-                <HomeContainer className="home-container">              <HomeHero className="home-hero"></HomeHero>
+                <HomeContainer className="home-container">
+                    {' '}
+                    <HomeHero className="home-hero"></HomeHero>
                     <HomeRowContainer className="home-row-container">
                         <h1>E-SHOP</h1>
                         <HomeRow className="home-row">
@@ -193,7 +195,7 @@ const Home = props => {
                                 }
                             )}
                         </HomeRow>
-                    </HomeRowContainer> 
+                    </HomeRowContainer>
                 </HomeContainer>
             </div>
         </>

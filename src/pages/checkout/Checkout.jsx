@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 //import PropTypes from 'prop-types'
 import CheckOutProduct from '../../components/checkoutProduct/CheckOutProduct';
 //import SubTotal from '../../components/subTotal/SubTotal';
-import styled, { keyframes } from 'styled-components';
+import styled, {
+    keyframes
+} from 'styled-components';
 import SubTotal from '../../components/subTotal/SubTotal';
 import { devices } from '../../utils/constantes';
 
@@ -35,7 +37,8 @@ const CheckOutContainer = styled.div`
     padding: 20px;
     background-color: white;
     height: max-content;
-    padding: 1rem 0 0 0;
+    padding-top: 1rem;
+    margin-bottom: 25rem;
 `;
 const CheckOutAd = styled.img`
     width: 100%;
@@ -74,12 +77,12 @@ const CheckoutContainerMain = styled.div`
 const CheckOutLeft = styled.div`
     display: flex;
     flex-direction: column;
-    animation: ${Show} 3s linear;
+    animation: ${Show} 1.1s ease-in-out;
 `;
 const CheckOutRight = styled.div`
     display: block;
     margin: 5rem 0;
-    animation: ${Show} 3s linear;
+    animation: ${Show} 1.3s ease-in-out;
 
     @media only screen and (${devices.iphone14}) {
         margin: 5rem 0;
@@ -94,63 +97,52 @@ const CheckOutRight = styled.div`
         margin: 5rem 0;
     }
 `;
+
 const CheckOutBody = styled.div`
     display: flex;
     gap: 7rem;
     flex-direction: column;
     align-items: flex-start;
-    
 `;
 
-
 const Checkout = props => {
-  return (
-      <>
-          <CheckOutContainer className="checkout">
-              <CheckOutAd
-                  src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
-                  alt=""
-                  className="checkout-ad"
-              />
-              <CheckoutContainerMain className="checkout-container-main">
-                  <CheckOutLeft className="checkout-left">
-                      <CheckOutBody className="checkout-body">
-                          <CheckOutProduct
-                              image="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
-                              title="Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)"
-                              price="200"
-                              rating={3}
-                          />
-                          <CheckOutProduct
-                              title="IFB 30 L Convection Microwave Oven (30BRC2, Black, With Starter Kit)"
-                              price={239.0}
-                              rating={4}
-                              image="https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg"
-                          />
-                          <CheckOutProduct
-                              title="All the Light we Cannot See: The Breathtaking World Wide Bestseller Paperback"
-                              price={199.99}
-                              rating={3}
-                              image="https://images-eu.ssl-images-amazon.com/images/I/514kNkerQ0L._SY264_BO1,204,203,200_QL40_FMwebp_.jpg"
-                          />
-                          <CheckOutProduct
-                              title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
-                              price={598.99}
-                              rating={4}
-                              image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
-                          />
-                      </CheckOutBody>
-                  </CheckOutLeft>
+    return (
+        <>
+            <CheckOutContainer className="checkout">
+                <CheckOutAd
+                    src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
+                    alt=""
+                    className="checkout-ad"
+                />
+                <CheckoutContainerMain className="checkout-container-main">
+                    <CheckOutLeft className="checkout-left">
+                        <h2>Your Shop List</h2>
+                        <CheckOutBody className="checkout-body">
+                            <CheckOutProduct
+                                image="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
+                                title="Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)"
+                                price="200"
+                                rating={3}
+                            />
+                            <CheckOutProduct
+                                title="IFB 30 L Convection Microwave Oven (30BRC2, Black, With Starter Kit)"
+                                price={239.0}
+                                rating={4}
+                                image="https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg"
+                            />
+                            
+                        </CheckOutBody>
+                    </CheckOutLeft>
 
-                  <CheckOutRight className="checkout_right">
-                      <SubTotal />
-                  </CheckOutRight>
-              </CheckoutContainerMain>
-          </CheckOutContainer>
-      </>
-  );
-}
+                    <CheckOutRight className="checkout_right">
+                        <SubTotal />
+                    </CheckOutRight>
+                </CheckoutContainerMain>
+            </CheckOutContainer>
+        </>
+    );
+};
 
-Checkout.propTypes = {}
+Checkout.propTypes = {};
 
-export default Checkout
+export default Checkout;

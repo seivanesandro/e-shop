@@ -10,7 +10,6 @@ import { BsBasket2Fill } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
 function HeaderNavBar() {
- 
     return (
         <>
             {['xl'].map(expand => (
@@ -60,7 +59,7 @@ function HeaderNavBar() {
                                 <Offcanvas.Title
                                     id={`offcanvasNavbarLabel-expand-${expand}`}
                                 >
-                                    <NavLink to='/'>
+                                    <NavLink to="/">
                                         <img
                                             src={
                                                 logonavbar
@@ -84,7 +83,7 @@ function HeaderNavBar() {
                                             className="me-2 search-style"
                                             aria-label="Search"
                                         />
-                                        <Button variant="warning" >
+                                        <Button variant="warning">
                                             <BsSearch />
                                         </Button>
                                     </Form>

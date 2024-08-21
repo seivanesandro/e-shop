@@ -15,21 +15,20 @@ const Product = ({
 }) => {
     const navigate = useNavigate();
     const addToCart = () => {
-         const product = [
-             {
-                 productid: productid,
-                 title: title,
-                 price: price,
-                 rate: rating
-             }
-         ];
-         navigate('/checkout');
-         return (
-             //TODO: dispatch provider method
-             console.log(product)
-             
-         );
-    }
+        const product = [
+            {
+                productid: productid,
+                title: title,
+                price: price,
+                rate: rating
+            }
+        ];
+        navigate('/checkout');
+        return (
+            //TODO: dispatch provider method
+            console.log(product)
+        );
+    };
     return (
         <>
             <Card className="card-product">
