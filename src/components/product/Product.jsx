@@ -4,31 +4,39 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { MdStarRate } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
+import { IoAddCircleOutline } from 'react-icons/io5';
+
+//import { useNavigate } from 'react-router-dom';
+
+import { useStateValue } from '../../hooks/StateProvider';
 
 const Product = ({
+    id,
     productid,
     title,
     image,
     price,
     rating
 }) => {
-    const navigate = useNavigate();
-    const addToCart = () => {
-        const product = [
-            {
-                productid: productid,
+    // eslint-disable-next-line no-unused-vars
+    const [state, dispatch] = useStateValue();
+
+    //add product to basket
+    const addToBasket = () => {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id: id,
+                image: image,
                 title: title,
                 price: price,
-                rate: rating
+                rating: rating
             }
-        ];
-        navigate('/checkout');
-        return (
-            //TODO: dispatch provider method
-            console.log(product)
-        );
+        });
     };
+
+    //test add product to cart
+    console.log(state);
     return (
         <>
             <Card className="card-product">
@@ -74,9 +82,12 @@ const Product = ({
                     <Button
                         variant="warning"
                         className="btn-card-product"
-                        onClick={addToCart}
+                        onClick={addToBasket}
+                        style={{
+                            fontWeight: '500'
+                        }}
                     >
-                        add cart
+                        <IoAddCircleOutline size='20' /> add cart
                     </Button>
                 </Card.Footer>
             </Card>

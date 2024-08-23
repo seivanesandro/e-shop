@@ -7,7 +7,8 @@ import {
     Routes,
     Route
 } from 'react-router-dom';
-import Login from './pages/login/Login';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 
 function App() {
     return (
@@ -24,6 +25,11 @@ function App() {
                         path="/login"
                         and
                         element={<Login />}
+                    />
+                    <Route
+                        path="/register"
+                        and
+                        element={<Register />}
                     />
                     <Route
                         path="/shop"

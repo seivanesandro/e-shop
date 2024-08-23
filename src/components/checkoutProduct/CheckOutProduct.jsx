@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import { devices } from '../../utils/constantes';
 import { MdStarRate } from 'react-icons/md';
+import { useStateValue } from '../../hooks/StateProvider';
+import { IoMdRemoveCircleOutline } from 'react-icons/io';
+
+
 
 const CheckoutProductContainer = styled.div`
     display: block;
@@ -74,6 +78,18 @@ const CheckOutProduct = ({
     price,
     rating
 }) => {
+    // eslint-disable-next-line no-unused-vars
+    const [state, dispatch] = useStateValue();
+
+    //remove product from basket
+    const removeFromBasket = () => {
+        dispatch({
+            type: 'REMOVE_FROM_BASKET',
+            id: id
+        });
+    };
+    //test remove function from cart
+    console.log(state);
     return (
         <>
             <CheckoutProductContainer className="checkout-product">
@@ -107,10 +123,14 @@ const CheckOutProduct = ({
                         <small>€</small>
                     </CheckoutProductPrice>
                     <Button
-                        variant="warning"
+                        variant="danger"
                         className="btn-card-product"
+                        onClick={removeFromBasket}
+                        style={{
+                            fontWeight: '500'
+                        }}
                     >
-                        remove from Cart
+                        <IoMdRemoveCircleOutline size="22" /> remove from Cart
                     </Button>
                 </CheckoutProductInfo>
             </CheckoutProductContainer>

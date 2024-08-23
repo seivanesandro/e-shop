@@ -9,7 +9,12 @@ import { BsSearch } from 'react-icons/bs';
 import { BsBasket2Fill } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
+import { useStateValue } from '../../hooks/StateProvider';
+
 function HeaderNavBar() {
+    // eslint-disable-next-line no-unused-vars
+    const [{ basket }, dispatch] =
+        useStateValue();
     return (
         <>
             {['xl'].map(expand => (
@@ -100,6 +105,20 @@ function HeaderNavBar() {
                                     >
                                         Login
                                     </NavLink>
+                                    {/*TODO: so vai estar activo se o auth for verdadeiro*/}
+                                    {/* <NavLink
+                                        to="/logout"
+                                        className={({
+                                            isActive
+                                        }) =>
+                                            isActive
+                                                ? 'active nav-Link'
+                                                : 'nav-Link'
+                                        }
+                                        title="logout"
+                                    >
+                                        Logout
+                                    </NavLink> */}
                                     <NavLink
                                         to="/shop"
                                         className={({
@@ -130,7 +149,9 @@ function HeaderNavBar() {
                                             }
                                         />
                                         <span>
-                                            0
+                                            {
+                                                basket.length
+                                            }
                                         </span>
                                     </NavLink>
                                 </Nav>

@@ -4,7 +4,8 @@ import CurrencyFormat from 'react-currency-format';
 //import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import { devices } from '../../utils/constantes';
-
+import { useStateValue } from '../../hooks/StateProvider';
+import { getBasketTotal } from '../../hooks/reducer';
 const SubTotalContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -52,12 +53,14 @@ const CurrentFormatStyle = styled.h2`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap:1rem;
+    gap: 1rem;
     justify-content: space-evenly;
-    
 `;
 
 const SubTotal = props => {
+    // eslint-disable-next-line no-unused-vars
+    const [{ basket }, dispatch] =
+        useStateValue();
     return (
         <>
             <SubTotalContainer className="subtotal">
@@ -66,10 +69,12 @@ const SubTotal = props => {
                         return (
                             <>
                                 <CurrentFormatStyle className="current-format-style">
-                                    <h2>
+                                    <span>
                                         Items:
-                                    </h2>
-                                    {value}
+                                    </span>
+                                    {
+                                        basket.length
+                                    }
                                 </CurrentFormatStyle>
                             </>
                         );
@@ -84,15 +89,16 @@ const SubTotal = props => {
                         return (
                             <>
                                 <CurrentFormatStyle className="current-format-style">
-                                    <h2>
+                                    <span>
                                         SubTotal:
-                                    </h2>
+                                    </span>
                                     {value}
                                 </CurrentFormatStyle>
                             </>
                         );
                     }}
-                    value={0}
+                    decimalScale={2}
+                    value={getBasketTotal(basket)}
                     displayType={'text'}
                     thousandSeparator={true}
                     prefix={'€'}

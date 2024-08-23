@@ -11,6 +11,7 @@ import {
     productThree
 } from '../../data/data';
 import { devices } from '../../utils/constantes';
+import { v4 as uuidv4 } from 'uuid';
 
 const Show = keyframes`
     0%{
@@ -136,10 +137,13 @@ const Home = props => {
                                     return (
                                         <Product
                                             key={
+                                                uuidv4()
+                                            }
+                                            id={
                                                 product.id
                                             }
                                             productid={
-                                                product.productID
+                                                product.productid
                                             }
                                             title={
                                                 product.title
@@ -166,8 +170,11 @@ const Home = props => {
                                             key={
                                                 product.id
                                             }
+                                            id={
+                                                product.id
+                                            }
                                             productid={
-                                                product.productID
+                                                product.productid
                                             }
                                             title={
                                                 product.title
@@ -194,8 +201,11 @@ const Home = props => {
                                             key={
                                                 product.id
                                             }
+                                            id={
+                                                product.id
+                                            }
                                             productid={
-                                                product.productID
+                                                product.productid
                                             }
                                             title={
                                                 product.title

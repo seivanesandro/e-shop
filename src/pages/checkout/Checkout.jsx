@@ -7,6 +7,8 @@ import styled, {
 } from 'styled-components';
 import SubTotal from '../../components/subTotal/SubTotal';
 import { devices } from '../../utils/constantes';
+import { useStateValue } from '../../hooks/StateProvider';
+import { v4 as uuidv4 } from 'uuid';
 
 const Show = keyframes`
     0%{
@@ -106,6 +108,10 @@ const CheckOutBody = styled.div`
 `;
 
 const Checkout = props => {
+    // eslint-disable-next-line no-unused-vars
+    const [{ basket }, dispatch] =
+        useStateValue();
+
     return (
         <>
             <CheckOutContainer className="checkout">
@@ -118,24 +124,32 @@ const Checkout = props => {
                     <CheckOutLeft className="checkout-left">
                         <h2>Your Shop List</h2>
                         <CheckOutBody className="checkout-body">
-                            <CheckOutProduct
-                                image="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
-                                title="Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)"
-                                price="200"
-                                rating={3}
-                            />
-                            <CheckOutProduct
-                                title="IFB 30 L Convection Microwave Oven (30BRC2, Black, With Starter Kit)"
-                                price={239.0}
-                                rating={4}
-                                image="https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg"
-                            />
-                            <CheckOutProduct
-                                title="IFB 30 L Convection Microwave Oven (30BRC2, Black, With Starter Kit)"
-                                price={239.0}
-                                rating={4}
-                                image="https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg"
-                            />
+                            {basket.map(
+                                product => {
+                                    return (
+                                        <CheckOutProduct
+                                            key={
+                                                uuidv4()
+                                            }
+                                            id={
+                                                product.id
+                                            }
+                                            image={
+                                                product.image
+                                            }
+                                            title={
+                                                product.title
+                                            }
+                                            price={
+                                                product.price
+                                            }
+                                            rating={
+                                                product.rating
+                                            }
+                                        />
+                                    );
+                                }
+                            )}
                         </CheckOutBody>
                     </CheckOutLeft>
 

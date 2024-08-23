@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import reducer, {
+    initialState
+} from './hooks/reducer';
+import { StateProvider } from './hooks/StateProvider';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -9,7 +13,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <App />
+        <StateProvider
+            initialState={initialState}
+            reducer={reducer}
+        >
+            <App />
+        </StateProvider>
     </React.StrictMode>
 );
 
