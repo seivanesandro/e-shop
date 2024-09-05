@@ -138,21 +138,33 @@ function HeaderNavBar() {
                                             isActive
                                         }) =>
                                             isActive
-                                                ? 'active nav-Link'
-                                                : 'nav-Link'
+                                                ? 'active nav-Link ckeckout-link'
+                                                : 'nav-Link ckeckout-link'
                                         }
                                         title="cart"
                                     >
                                         <BsBasket2Fill
                                             size={
-                                                30
+                                                27
                                             }
                                         />
-                                        <span>
-                                            {
-                                                basket.length
-                                            }
-                                        </span>
+                                        {basket.length ===
+                                        0 ? (
+                                            <span
+                                                style={{
+                                                    visibility:
+                                                        'hidden'
+                                                }}
+                                            >
+                                                0
+                                            </span>
+                                        ) : (
+                                            <span className="total-products-style">
+                                                {
+                                                    basket.length
+                                                }
+                                            </span>
+                                        )}
                                     </NavLink>
                                 </Nav>
                             </Offcanvas.Body>

@@ -67,6 +67,23 @@ body {
 .navbar .nav-Link.active {
     color: #ffd200 !important;
 }
+
+.ckeckout-link{
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.1rem !important;
+}
+
+.total-products-style{
+    color: #F7971E !important;
+    text-shadow: 0 0 0.5rem #ffd200 !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+   
+
+}
+
+
 /*home*/
 
 /*Product*/

@@ -2,7 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import CurrencyFormat from 'react-currency-format';
 //import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components';
+import styled, {
+    keyframes
+} from 'styled-components';
 import { devices } from '../../utils/constantes';
 import { useStateValue } from '../../hooks/StateProvider';
 import { getBasketTotal } from '../../hooks/reducer';
@@ -21,7 +23,6 @@ const Show = keyframes`
 `;
 
 const SubTotalContainer = styled.div`
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -36,9 +37,8 @@ const SubTotalContainer = styled.div`
     margin-bottom: 15px;
 
     animation: ${Show} 0.5s linear;
-    
-    @media only screen and
-        (${devices.portatilL}) {
+
+    @media only screen and (${devices.portatilL}) {
         padding: 2rem 10rem 2rem 10rem;
     }
     @media only screen and (${devices.portatil}) {
@@ -81,60 +81,74 @@ const SubTotal = props => {
         useStateValue();
     return (
         <>
-            {basket.length === 0 ? (<h2>no items in basket</h2>) : (
+            {basket.length === 0 ? (
                 <>
-                <SubTotalContainer className="subtotal">
-                <CurrencyFormat
-                    renderText={value => {
-                        return (
-                            <>
-                                <CurrentFormatStyle className="current-format-style">
-                                    <span>
-                                        Items:
-                                    </span>
-                                    {
-                                        basket.length
-                                    }
-                                </CurrentFormatStyle>
-                            </>
-                        );
-                    }}
-                    value={0}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    ormat="####"
-                />
-                <CurrencyFormat
-                    renderText={value => {
-                        return (
-                            <>
-                                <CurrentFormatStyle className="current-format-style">
-                                    <span>
-                                        SubTotal:
-                                    </span>
-                                    {value}
-                                </CurrentFormatStyle>
-                            </>
-                        );
-                    }}
-                    decimalScale={2}
-                    value={getBasketTotal(basket)}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={'€'}
-                />
-                <Button
-                    variant="dark"
-                    className="btn-card-product"
-                >
-                    Pay
-                </Button>
-                <small className="subtotal__gift">
-                    <input type="checkbox" /> This
-                    order contains a gift
-                </small>
-            </SubTotalContainer>
-            </>)}
+                    <h2>no items in basket</h2>
+                </>
+            ) : (
+                <>
+                    <SubTotalContainer className="subtotal">
+                        <CurrencyFormat
+                            renderText={value => {
+                                return (
+                                    <>
+                                        <CurrentFormatStyle className="current-format-style">
+                                            <span>
+                                                Items:
+                                            </span>
+                                            {
+                                                basket.length
+                                            }
+                                        </CurrentFormatStyle>
+                                    </>
+                                );
+                            }}
+                            value={0}
+                            displayType={'text'}
+                            thousandSeparator={
+                                true
+                            }
+                            ormat="####"
+                        />
+                        <CurrencyFormat
+                            renderText={value => {
+                                return (
+                                    <>
+                                        <CurrentFormatStyle className="current-format-style">
+                                            <span>
+                                                SubTotal:
+                                            </span>
+                                            {
+                                                value
+                                            }
+                                        </CurrentFormatStyle>
+                                    </>
+                                );
+                            }}
+                            decimalScale={2}
+                            value={getBasketTotal(
+                                basket
+                            )}
+                            displayType={'text'}
+                            thousandSeparator={
+                                true
+                            }
+                            prefix={'€'}
+                        />
+                        <Button
+                            variant="dark"
+                            className="btn-card-product"
+                        >
+                            Pay
+                        </Button>
+                        <small className="subtotal__gift">
+                            <input type="checkbox" />{' '}
+                            This order contains a
+                            gift
+                        </small>
+                    </SubTotalContainer>
+                </>
+            )}
         </>
     );
 };
