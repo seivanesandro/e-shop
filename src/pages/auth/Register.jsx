@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 //import styled from 'styled-components';
 //import { IoStorefrontOutline } from 'react-icons/io5';
 
-
 const Register = props => {
     return (
         <>

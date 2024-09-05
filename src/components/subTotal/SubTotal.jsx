@@ -2,11 +2,26 @@ import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import CurrencyFormat from 'react-currency-format';
 //import PropTypes from 'prop-types'
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { devices } from '../../utils/constantes';
 import { useStateValue } from '../../hooks/StateProvider';
 import { getBasketTotal } from '../../hooks/reducer';
+
+const Show = keyframes`
+     0%{
+        transform: scaleY(0) ;
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+         transform: scaleY(1);
+    }
+
+`;
+
 const SubTotalContainer = styled.div`
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -20,7 +35,10 @@ const SubTotalContainer = styled.div`
 
     margin-bottom: 15px;
 
-    @media only screen and (${devices.portatilL}) {
+    animation: ${Show} 0.5s linear;
+    
+    @media only screen and
+        (${devices.portatilL}) {
         padding: 2rem 10rem 2rem 10rem;
     }
     @media only screen and (${devices.portatil}) {
@@ -63,7 +81,9 @@ const SubTotal = props => {
         useStateValue();
     return (
         <>
-            <SubTotalContainer className="subtotal">
+            {basket.length === 0 ? (<h2>no items in basket</h2>) : (
+                <>
+                <SubTotalContainer className="subtotal">
                 <CurrencyFormat
                     renderText={value => {
                         return (
@@ -114,6 +134,7 @@ const SubTotal = props => {
                     order contains a gift
                 </small>
             </SubTotalContainer>
+            </>)}
         </>
     );
 };

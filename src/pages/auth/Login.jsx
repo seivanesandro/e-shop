@@ -4,13 +4,12 @@ import { NavLink } from 'react-router-dom';
 //import styled from 'styled-components';
 //import { IoStorefrontOutline } from 'react-icons/io5';
 
-
 const Login = props => {
     return (
         <>
             <div className="login">
                 <h2>Login</h2>
-                
+
                 <p>
                     <strong>
                         ainda nao tem conta, faça

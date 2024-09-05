@@ -136,9 +136,7 @@ const Home = props => {
                                 product => {
                                     return (
                                         <Product
-                                            key={
-                                                uuidv4()
-                                            }
+                                            key={uuidv4()}
                                             id={
                                                 product.id
                                             }

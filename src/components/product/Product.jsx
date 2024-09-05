@@ -87,7 +87,8 @@ const Product = ({
                             fontWeight: '500'
                         }}
                     >
-                        <IoAddCircleOutline size='20' /> add cart
+                        <IoAddCircleOutline size="20" />{' '}
+                        add cart
                     </Button>
                 </Card.Footer>
             </Card>

@@ -57,7 +57,6 @@ const CheckoutContainerMain = styled.div`
     justify-content: space-evenly;
     gap: 5rem;
     padding: 6rem 0 0 0;
-    animation: ${Show} 1s linear;
 
     @media only screen and (${devices.tablet}) {
         gap: 0;
@@ -84,7 +83,6 @@ const CheckOutLeft = styled.div`
 const CheckOutRight = styled.div`
     display: block;
     margin: 5rem 0;
-    animation: ${Show} 1.3s ease-in-out;
 
     @media only screen and (${devices.iphone14}) {
         margin: 5rem 0;
@@ -128,9 +126,7 @@ const Checkout = props => {
                                 product => {
                                     return (
                                         <CheckOutProduct
-                                            key={
-                                                uuidv4()
-                                            }
+                                            key={uuidv4()}
                                             id={
                                                 product.id
                                             }

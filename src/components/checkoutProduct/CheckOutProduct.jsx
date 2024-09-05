@@ -8,8 +8,6 @@ import { MdStarRate } from 'react-icons/md';
 import { useStateValue } from '../../hooks/StateProvider';
 import { IoMdRemoveCircleOutline } from 'react-icons/io';
 
-
-
 const CheckoutProductContainer = styled.div`
     display: block;
 
@@ -130,7 +128,8 @@ const CheckOutProduct = ({
                             fontWeight: '500'
                         }}
                     >
-                        <IoMdRemoveCircleOutline size="22" /> remove from Cart
+                        <IoMdRemoveCircleOutline size="22" />{' '}
+                        remove from Cart
                     </Button>
                 </CheckoutProductInfo>
             </CheckoutProductContainer>
