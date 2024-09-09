@@ -1,6 +1,6 @@
 import HeaderNavBar from './components/navbar/Navbar';
 import Checkout from './pages/checkout/Checkout';
-import ConstructorPage from './pages/constructorPage/ConstructorPage';
+//import ConstructorPage from './pages/constructorPage/ConstructorPage';
 import Home from './pages/home/Home';
 import {
     HashRouter,
