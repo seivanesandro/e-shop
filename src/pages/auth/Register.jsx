@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     NavLink,
-    useHistory
+    useNavigate
 } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/Firebase';
 
 //import PropTypes from 'prop-types'
@@ -37,9 +38,51 @@ const RegisterContnainer = styled.div`
 `;
 
 const Register = props => {
+    const history = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    //TODO: add style annd loading
+    
+    //register
+    const registerLogin = async e => {
+        e.preventDefault();
+
+        await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password,
+            error
+        )
+            .then(auth => {
+                //FIXME: erase for deploy
+                alert(
+                    `Email ${email} registado com sucesso`
+                );
+                history('/');
+            })
+            .catch(error => {
+                alert(
+                    'Algo correu mal, por favor tennta mais tarde!'
+                );
+                console.error(
+                    'Error registering user:',
+                    error
+                );
+                setError('algo deu errado');
+            });
+    };
+
     return (
         <>
             <RegisterContnainer className="register">
+                {/*TODO: add style annd loading */}
+                {error && (
+                    <p>
+                        Algo correu mal, tennte
+                        mais tarde
+                    </p>
+                )}
                 <h2>Register</h2>
                 <Form data-bs-theme="light">
                     <Form.Group
@@ -52,6 +95,12 @@ const Register = props => {
                         <Form.Control
                             type="email"
                             placeholder="Enter email"
+                            value={email}
+                            onChange={e =>
+                                setEmail(
+                                    e.target.value
+                                )
+                            }
                         />
                         <Form.Text className="text-muted">
                             We'll never share your
@@ -70,6 +119,12 @@ const Register = props => {
                         <Form.Control
                             type="password"
                             placeholder="Password"
+                            value={password}
+                            onChange={e =>
+                                setPassword(
+                                    e.target.value
+                                )
+                            }
                         />
                     </Form.Group>
                     <Form.Group
@@ -85,6 +140,7 @@ const Register = props => {
                         variant="warning"
                         className="btn-card-product"
                         type="submit"
+                        onClick={registerLogin}
                     >
                         Register
                     </Button>

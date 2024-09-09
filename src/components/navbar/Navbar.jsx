@@ -7,14 +7,43 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import logonavbar from '../../assets/logonavbar.png';
 import { BsSearch } from 'react-icons/bs';
 import { BsBasket2Fill } from 'react-icons/bs';
-import { NavLink } from 'react-router-dom';
+import {
+    NavLink,
+    useNavigate
+} from 'react-router-dom';
 
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase/Firebase';
+import { signOut } from 'firebase/auth';
 import { useStateValue } from '../../hooks/StateProvider';
 
 function HeaderNavBar() {
     // eslint-disable-next-line no-unused-vars
     const [{ basket }, dispatch] =
         useStateValue();
+    const [user] = useAuthState(auth);
+
+    const navigatelougout = useNavigate();
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                // Log de sucesso ou redirecionamento para a página de login
+                navigatelougout('/login');
+                //FIXME: erase for deploy
+                alert(`Até breve, ${user.email}`);
+                console.log(
+                    'Logout realizado com sucesso'
+                );
+            })
+            .catch(error => {
+                // Lidar com erros de logout
+                console.error(
+                    'Erro ao realizar logout:',
+                    error
+                );
+            });
+    };
+
     return (
         <>
             {['xl'].map(expand => (
@@ -92,33 +121,38 @@ function HeaderNavBar() {
                                             <BsSearch />
                                         </Button>
                                     </Form>
-                                    <NavLink
-                                        to="/login"
-                                        className={({
-                                            isActive
-                                        }) =>
-                                            isActive
-                                                ? 'active nav-Link'
-                                                : 'nav-Link'
-                                        }
-                                        title="login"
-                                    >
-                                        Login
-                                    </NavLink>
-                                    {/*TODO: so vai estar activo se o auth for verdadeiro*/}
-                                    {/* <NavLink
-                                        to="/logout"
-                                        className={({
-                                            isActive
-                                        }) =>
-                                            isActive
-                                                ? 'active nav-Link'
-                                                : 'nav-Link'
-                                        }
-                                        title="logout"
-                                    >
-                                        Logout
-                                    </NavLink> */}
+                                    {user ? (
+                                        <NavLink
+                                            to="/login"
+                                            className={({
+                                                isActive
+                                            }) =>
+                                                isActive
+                                                    ? 'active nav-Link'
+                                                    : 'nav-Link'
+                                            }
+                                            title="logout"
+                                            onClick={
+                                                handleLogout
+                                            }
+                                        >
+                                            Logout
+                                        </NavLink>
+                                    ) : (
+                                        <NavLink
+                                            to="/login"
+                                            className={({
+                                                isActive
+                                            }) =>
+                                                isActive
+                                                    ? 'active nav-Link'
+                                                    : 'nav-Link'
+                                            }
+                                            title="login"
+                                        >
+                                            Login
+                                        </NavLink>
+                                    )}
                                     <NavLink
                                         to="/shop"
                                         className={({

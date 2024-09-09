@@ -11,7 +11,7 @@ import { IoMdRemoveCircleOutline } from 'react-icons/io';
 const CheckoutProductContainer = styled.div`
     display: block;
 
-    margin: 20px 1rem;
+    margin: 20px auto;
 `;
 const CheckoutProductImage = styled.img`
     object-fit: contain;
@@ -85,6 +85,8 @@ const CheckOutProduct = ({
             type: 'REMOVE_FROM_BASKET',
             id: id
         });
+        //FIXME: erase for deploy
+        alert('Produto removido');
     };
     //test remove function from cart
     console.log(state);

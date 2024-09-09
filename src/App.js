@@ -5,12 +5,17 @@ import Home from './pages/home/Home';
 import {
     HashRouter,
     Routes,
-    Route
+    Route,
+    Navigate
 } from 'react-router-dom';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from './firebase/Firebase';
+import PageShop from './pages/shop/PageShop';
 
 function App() {
+    const [user] = useAuthState(auth);
     return (
         <div className="App">
             <HashRouter>
@@ -35,13 +40,24 @@ function App() {
                         path="/shop"
                         and
                         element={
-                            <ConstructorPage info="This Page is under maintenance, we will be brief" />
+                            user ? (
+                                <PageShop />
+                            ) : (
+                                /*<ConstructorPage innfo='onn connstructor'/>*/
+                                <Navigate to="/login" />
+                            )
                         }
                     />
                     <Route
                         path="/checkout"
                         and
-                        element={<Checkout />}
+                        element={
+                            user ? (
+                                <Checkout />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
                     />
                 </Routes>
             </HashRouter>

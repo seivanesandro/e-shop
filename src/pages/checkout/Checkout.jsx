@@ -9,6 +9,8 @@ import SubTotal from '../../components/subTotal/SubTotal';
 import { devices } from '../../utils/constantes';
 import { useStateValue } from '../../hooks/StateProvider';
 import { v4 as uuidv4 } from 'uuid';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase/Firebase';
 
 const Show = keyframes`
     0%{
@@ -80,6 +82,40 @@ const CheckOutLeft = styled.div`
     flex-direction: column;
     animation: ${Show} 1.1s ease-in-out;
 `;
+
+const ContainerUser = styled.div`
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 2rem 10rem 0 0;
+    @media only screen and (${devices.tablet}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.iphone14}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.mobileG}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.mobileM}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.mobileP}) {
+        align-items: center;
+        justify-content: center;
+    }
+`;
+
+const UserLog = styled.div`
+    color: #ffd200;
+    font-weight: 600;
+    font-size: 1.5rem;
+`;
+
 const CheckOutRight = styled.div`
     display: block;
     margin: 5rem 0;
@@ -110,6 +146,8 @@ const Checkout = props => {
     const [{ basket }, dispatch] =
         useStateValue();
 
+    const [user] = useAuthState(auth);
+
     return (
         <>
             <CheckOutContainer className="checkout">
@@ -118,6 +156,23 @@ const Checkout = props => {
                     alt=""
                     className="checkout-ad"
                 />
+                <ContainerUser className="container-user">
+                    {user ? (
+                        <UserLog className="user-log">
+                            {user.email}!
+                        </UserLog>
+                    ) : (
+                        <div
+                            className="user-logout"
+                            style={{
+                                visibility:
+                                    'hidden'
+                            }}
+                        >
+                            Você não está logado.
+                        </div>
+                    )}
+                </ContainerUser>
                 <CheckoutContainerMain className="checkout-container-main">
                     <CheckOutLeft className="checkout-left">
                         <h2>Your Shop List</h2>

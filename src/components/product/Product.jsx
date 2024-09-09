@@ -33,6 +33,8 @@ const Product = ({
                 rating: rating
             }
         });
+        //FIXME: erase for deploy
+        alert(' Produto adicionado');
     };
 
     //test add product to cart

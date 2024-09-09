@@ -3,8 +3,10 @@ import {
     NavLink,
     useNavigate
 } from 'react-router-dom';
-import { auth } from '../../firebase/Firebase';
+
 import { signInWithEmailAndPassword } from 'firebase/auth';
+
+import { auth } from '../../firebase/Firebase';
 
 //import PropTypes from 'prop-types'
 import styled from 'styled-components';
@@ -41,32 +43,45 @@ const Login = props => {
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    //TODO: add style annd loading
 
-    //signin method
-    const signIn = e => {
+    const signIn = async e => {
         e.preventDefault();
 
-        auth.signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
+            auth,
             email,
-            password
+            password,
+            error
         )
             .then(auth => {
-                history.push('/');
+                //FIXME: erase for deploy
+                alert(`Olá ${email}, bem-vindo!`);
+                history('/');
             })
-            .catch(error => alert(error.message));
-    };
-
-    const handleEmail = e => {
-        setEmail(e.target.value);
-    };
-
-    const handlePassword = e => {
-        setPassword(e.target.value);
+            .catch(error => {
+                console.error(
+                    'Error signin user:',
+                    error
+                );
+                alert(
+                    'As suas credenciais estao erradas!'
+                );
+                setError('Erro ao fazer login');
+            });
     };
 
     return (
         <>
             <LoginContnainer className="login">
+                {/*TODO: add style annd loading */}
+                {error && (
+                    <p>
+                        Sua credenciais estao
+                        erradas! tente novamente
+                    </p>
+                )}
                 <h2>Login</h2>
                 <Form data-bs-theme="light">
                     <Form.Group
@@ -80,7 +95,11 @@ const Login = props => {
                             type="email"
                             placeholder="Enter email"
                             value={email}
-                            onChange={handleEmail}
+                            onChange={e =>
+                                setEmail(
+                                    e.target.value
+                                )
+                            }
                         />
                         <Form.Text
                             style={{
@@ -104,8 +123,10 @@ const Login = props => {
                             type="password"
                             placeholder="Password"
                             value={password}
-                            onChange={
-                                handlePassword
+                            onChange={e =>
+                                setPassword(
+                                    e.target.value
+                                )
                             }
                         />
                     </Form.Group>

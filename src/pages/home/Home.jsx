@@ -12,6 +12,8 @@ import {
 } from '../../data/data';
 import { devices } from '../../utils/constantes';
 import { v4 as uuidv4 } from 'uuid';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase/Firebase';
 
 const Show = keyframes`
     0%{
@@ -41,6 +43,7 @@ const HomeContainer = styled.div`
     flex-direction: column;
     gap: 4rem;
 `;
+
 const HomeHero = styled.div`
     max-width: 100%;
     width: 100%;
@@ -52,6 +55,41 @@ const HomeHero = styled.div`
     background-size: cover !important;
     animation: ${Show} 1s linear;
 `;
+
+const ContainerUser = styled.div`
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 2rem 10rem 0 0;
+
+    @media only screen and (${devices.tablet}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.iphone14}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.mobileG}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.mobileM}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.mobileP}) {
+        align-items: center;
+        justify-content: center;
+    }
+`;
+
+const UserLog = styled.div`
+    color: #ffd200;
+    font-weight: 600;
+    font-size: 1.5rem;
+`;
+
 const HomeRowContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -61,22 +99,38 @@ const HomeRowContainer = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
     animation: ${Show} 1s linear;
-    margin-top: 7rem;
-    margin-bottom: 8rem;
+    margin: 3rem 6rem;
 
+    @media only screen and (${devices.portatilL}) {
+        margin: 3rem 10rem;
+        justify-content: center;
+    }
+    @media only screen and (${devices.portatilS}) {
+        justify-content: center;
+    }
+
+    @media only screen and (${devices.portatil}) {
+        justify-content: center;
+        margin: 3rem 1rem;
+    }
+    @media only screen and (${devices.tablet}) {
+        justify-content: center;
+        margin: 3rem 1rem;
+    }
     @media only screen and (${devices.iphone14}) {
-        gap: 3rem;
+        margin: 3rem 1rem;
     }
     @media only screen and (${devices.mobileG}) {
-        gap: 3rem;
+        margin: 3rem 1rem;
     }
     @media only screen and (${devices.mobileM}) {
-        gap: 3rem;
+        margin: 3rem 1rem;
     }
     @media only screen and (${devices.mobileP}) {
-        gap: 3rem;
+        margin: 3rem 1rem;
     }
 `;
+
 const HomeRow = styled.div`
     display: flex;
     flex-direction: row;
@@ -114,6 +168,7 @@ const HomeRow = styled.div`
         margin: 3rem auto;
     }
 `;
+
 const CheckOutAd = styled.img`
     width: 100%;
     object-fit: cover;
@@ -123,16 +178,47 @@ const CheckOutAd = styled.img`
 `;
 
 const Home = props => {
+    const [user] = useAuthState(auth);
+
+    const randomDataOne = productOne
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
+    const randomDataTwo = productTwo
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
+    const randomDataThree = productThree
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
     return (
         <>
             <div className="home">
                 <HomeContainer className="home-container">
                     {' '}
-                    <HomeHero className="home-hero"></HomeHero>
+                    <HomeHero className="home-hero">
+                        <ContainerUser className="container-user">
+                            {user ? (
+                                <UserLog className="user-log">
+                                    Bem-vindo,{' '}
+                                    {user.email}!
+                                </UserLog>
+                            ) : (
+                                <div
+                                    className="user-logout"
+                                    style={{
+                                        visibility:
+                                            'hidden'
+                                    }}
+                                >
+                                    Você não está
+                                    logado.
+                                </div>
+                            )}
+                        </ContainerUser>
+                    </HomeHero>
                     <HomeRowContainer className="home-row-container">
                         <h1>E-SHOP</h1>
                         <HomeRow className="home-row">
-                            {productOne.map(
+                            {randomDataOne.map(
                                 product => {
                                     return (
                                         <Product
@@ -159,9 +245,7 @@ const Home = props => {
                                     );
                                 }
                             )}
-                        </HomeRow>
-                        <HomeRow className="home-row">
-                            {productTwo.map(
+                            {randomDataTwo.map(
                                 product => {
                                     return (
                                         <Product
@@ -190,9 +274,7 @@ const Home = props => {
                                     );
                                 }
                             )}
-                        </HomeRow>
-                        <HomeRow className="home-row">
-                            {productThree.map(
+                            {randomDataThree.map(
                                 product => {
                                     return (
                                         <Product

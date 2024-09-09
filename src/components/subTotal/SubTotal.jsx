@@ -45,22 +45,22 @@ const SubTotalContainer = styled.div`
         padding: 2rem 4rem 2rem 4rem;
     }
     @media only screen and (${devices.tablet}) {
-        padding: 2rem 2rem 2rem 2rem;
+        padding: 2rem 1rem 2rem 1rem;
     }
     @media only screen and (${devices.iphone14}) {
-        margin: 72px 67px;
+        margin: 72px 50px;
         padding: 2rem 0.5rem 2rem 0.5rem;
     }
     @media only screen and (${devices.mobileG}) {
-        margin: 72px 67px;
+        margin: 72px 50px;
         padding: 2rem 0.5rem 2rem 0.5rem;
     }
     @media only screen and (${devices.mobileM}) {
-        margin: 72px 42px;
+        margin: 72px 32px;
         padding: 2rem 0.5rem 2rem 0.5rem;
     }
     @media only screen and (${devices.mobileP}) {
-        margin: 72px 15px;
+        margin: 72px auto;
         padding: 2rem 0.5rem 2rem 0.5rem;
     }
 `;
@@ -73,6 +73,17 @@ const CurrentFormatStyle = styled.h2`
     align-items: flex-start;
     gap: 1rem;
     justify-content: space-evenly;
+    @media only screen and (${devices.tablet}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.iphone14}) {
+    }
+    @media only screen and (${devices.mobileG}) {
+    }
+    @media only screen and (${devices.mobileM}) {
+    }
+    @media only screen and (${devices.mobileP}) {
+    }
 `;
 
 const SubTotal = props => {
