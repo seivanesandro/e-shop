@@ -118,7 +118,7 @@ body {
     margin-left: 0.9rem;
 }
 
-.price-card-product-promotion{
+.price-card-product-promotion {
     font-size: 1.7rem;
     font-weight: 600;
     margin-left: 0.9rem;
@@ -144,30 +144,29 @@ body {
 .btn-card-product:hover {
     outline: #333;
     box-shadow: 0 0 0.2rem #000000;
-    background: #F7971E;
+    background: #f7971e;
 }
 
 /*checkout*/
 /*checkoutproduct*/
 /*subtotal*/
 /*login & register*/
-.style-link{
+.style-link {
     text-align: left;
 }
-.link{
-    color: #FFD200;
+.link {
+    color: #ffd200;
     text-decoration: none;
 }
 .link:hover {
-    color: #F7971E;
+    color: #f7971e;
     text-decoration: none;
 }
 
-.style-error{
-color: #FFD200;
+.style-error {
+    color: #ffd200;
     text-decoration: none;
 }
-
 
 /*breakpoints*/
 @media only screen and (max-width: 2560px) {
@@ -193,7 +192,7 @@ color: #FFD200;
 
 @media only screen and (max-width: 375px) {
     .style-link {
-            font-size: 0.7rem;
+        font-size: 0.7rem;
     }
 }
 

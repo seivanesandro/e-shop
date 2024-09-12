@@ -195,10 +195,10 @@ const Home = props => {
         productThree.filter(
             item => parseInt(item.price) < 100
         );
-     const randomDataPRomotion =
-         filterDataPromotion
-             .sort(() => Math.random() - 0.5)
-             .slice(0, 5);
+    const randomDataPRomotion =
+        filterDataPromotion
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 5);
     return (
         <>
             <div className="home">

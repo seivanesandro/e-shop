@@ -44,7 +44,7 @@ const Register = props => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     //TODO: add style annd loading
-    
+
     //register
     const registerLogin = async e => {
         e.preventDefault();

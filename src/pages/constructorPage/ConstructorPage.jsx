@@ -1,6 +1,8 @@
 import React from 'react';
 //import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components';
+import styled, {
+    keyframes
+} from 'styled-components';
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -28,20 +30,20 @@ const ContainerConstructor = styled.div`
 `;
 
 const ConstructorPage = ({ info }) => {
-     const navigate = useNavigate();
-     const [count, setCount] = useState(5);
+    const navigate = useNavigate();
+    const [count, setCount] = useState(5);
 
-     useEffect(() => {
-         const timer = setInterval(() => {
-             setCount(prevCount => prevCount - 1);
-         }, 1000);
-         if (count === 0) {
-             clearInterval(timer);
-             navigate('/');
-         }
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCount(prevCount => prevCount - 1);
+        }, 1000);
+        if (count === 0) {
+            clearInterval(timer);
+            navigate('/');
+        }
 
-         return () => clearInterval(timer);
-     }, [count, navigate]);
+        return () => clearInterval(timer);
+    }, [count, navigate]);
     return (
         <>
             <ContainerConstructor className="container-constructor">

@@ -117,9 +117,9 @@ const CheckOutProduct = ({
                     </CheckoutProductRating>
                     <CheckoutProductPrice
                         className={
-                         price < 200
-                                    ? 'price-card-product-promotion'
-                                    : 'checkout-product-price'
+                            price < 200
+                                ? 'price-card-product-promotion'
+                                : 'checkout-product-price'
                         }
                         style={{
                             fontWeight: 600

@@ -91,7 +91,7 @@ const ContainerUser = styled.div`
     flex-direction: row;
     gap: 0.5rem;
     font-weight: 600;
-    
+
     @media only screen and (${devices.tablet}) {
         align-items: center;
         justify-content: center;
