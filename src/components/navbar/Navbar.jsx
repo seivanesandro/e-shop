@@ -7,6 +7,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import logonavbar from '../../assets/logonavbar.png';
 import { BsSearch } from 'react-icons/bs';
 import { BsBasket2Fill } from 'react-icons/bs';
+import { IoHome } from 'react-icons/io5';
+
 import {
     NavLink,
     useNavigate
@@ -121,6 +123,23 @@ function HeaderNavBar() {
                                             <BsSearch />
                                         </Button>
                                     </Form>
+                                    <NavLink
+                                        to="/"
+                                        className={({
+                                            isActive
+                                        }) =>
+                                            isActive
+                                                ? 'active nav-Link'
+                                                : 'nav-Link'
+                                        }
+                                        title="Home"
+                                    >
+                                        <IoHome
+                                            size={
+                                                23
+                                            }
+                                        />
+                                    </NavLink>
                                     {user ? (
                                         <NavLink
                                             to="/login"

@@ -34,7 +34,7 @@ const Product = ({
             }
         });
         //FIXME: erase for deploy
-        alert(' Produto adicionado');
+        //alert(' Produto adicionado');
     };
 
     //test add product to cart
@@ -70,7 +70,13 @@ const Product = ({
                                     />
                                 ))}
                         </Card.Text>
-                        <Card.Text className="price-card-product">
+                        <Card.Text
+                            className={
+                                price < 200
+                                    ? 'price-card-product-promotion'
+                                    : 'price-card-product'
+                            }
+                        >
                             {price}€
                         </Card.Text>
                     </div>

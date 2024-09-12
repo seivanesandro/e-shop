@@ -69,18 +69,22 @@ const ContainerUser = styled.div`
     @media only screen and (${devices.iphone14}) {
         align-items: center;
         justify-content: center;
+        margin: 2rem 2rem;
     }
     @media only screen and (${devices.mobileG}) {
         align-items: center;
         justify-content: center;
+        margin: 2rem 2rem;
     }
     @media only screen and (${devices.mobileM}) {
         align-items: center;
         justify-content: center;
+        padding: 2rem 0rem;
     }
     @media only screen and (${devices.mobileP}) {
         align-items: center;
         justify-content: center;
+        padding: 2rem 0rem;
     }
 `;
 
@@ -182,13 +186,19 @@ const Home = props => {
 
     const randomDataOne = productOne
         .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
+        .slice(0, 3);
     const randomDataTwo = productTwo
         .sort(() => Math.random() - 0.5)
         .slice(0, 2);
-    const randomDataThree = productThree
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
+
+    const filterDataPromotion =
+        productThree.filter(
+            item => parseInt(item.price) < 100
+        );
+     const randomDataPRomotion =
+         filterDataPromotion
+             .sort(() => Math.random() - 0.5)
+             .slice(0, 5);
     return (
         <>
             <div className="home">
@@ -274,7 +284,12 @@ const Home = props => {
                                     );
                                 }
                             )}
-                            {randomDataThree.map(
+                        </HomeRow>
+                    </HomeRowContainer>
+                    <HomeRowContainer className="home-row-container">
+                        <h1>PROMOTIONS OF DAY</h1>
+                        <HomeRow className="home-row">
+                            {randomDataPRomotion.map(
                                 product => {
                                     return (
                                         <Product
@@ -305,11 +320,7 @@ const Home = props => {
                             )}
                         </HomeRow>
                     </HomeRowContainer>
-                    <CheckOutAd
-                        src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
-                        alt=""
-                        className="checkout-ad"
-                    />
+                    <CheckOutAd src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" />
                 </HomeContainer>
             </div>
         </>

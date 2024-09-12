@@ -118,6 +118,16 @@ body {
     margin-left: 0.9rem;
 }
 
+.price-card-product-promotion{
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-left: 0.9rem;
+    color: #fff;
+    background: green;
+    padding: 0.1rem 0.5rem;
+    border-radius: 16px;
+}
+
 .footer-card-product {
     display: flex;
     align-items: center;
@@ -134,12 +144,30 @@ body {
 .btn-card-product:hover {
     outline: #333;
     box-shadow: 0 0 0.2rem #000000;
+    background: #F7971E;
 }
 
 /*checkout*/
 /*checkoutproduct*/
 /*subtotal*/
-/*login*/
+/*login & register*/
+.style-link{
+    text-align: left;
+}
+.link{
+    color: #FFD200;
+    text-decoration: none;
+}
+.link:hover {
+    color: #F7971E;
+    text-decoration: none;
+}
+
+.style-error{
+color: #FFD200;
+    text-decoration: none;
+}
+
 
 /*breakpoints*/
 @media only screen and (max-width: 2560px) {
@@ -164,10 +192,17 @@ body {
 }
 
 @media only screen and (max-width: 375px) {
+    .style-link {
+            font-size: 0.7rem;
+    }
 }
 
 @media only screen and (max-width: 320px) {
     .card-product {
         width: 20rem !important;
+    }
+
+    .style-link {
+        font-size: 0.7rem;
     }
 }

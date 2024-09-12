@@ -85,9 +85,13 @@ const CheckOutLeft = styled.div`
 
 const ContainerUser = styled.div`
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 2rem 10rem 0 0;
+    align-items: baseline;
+    flex-direction: row;
+    gap: 0.5rem;
+    font-weight: 600;
+    
     @media only screen and (${devices.tablet}) {
         align-items: center;
         justify-content: center;
@@ -157,9 +161,10 @@ const Checkout = props => {
                     className="checkout-ad"
                 />
                 <ContainerUser className="container-user">
+                    ACCOUNT:
                     {user ? (
                         <UserLog className="user-log">
-                            {user.email}!
+                            {user.email}
                         </UserLog>
                     ) : (
                         <div

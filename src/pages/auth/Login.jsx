@@ -15,15 +15,15 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import { devices } from '../../utils/constantes';
 
-const LoginContnainer = styled.div`
+const LoginContainer = styled.div`
     background: #333;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-
     margin: 10rem auto;
+    padding: 10rem 0 10rem 0;
 
     @media only screen and (${devices.iphone14}) {
         padding: 10rem 0.5rem 10rem 0.5rem;
@@ -74,11 +74,11 @@ const Login = props => {
 
     return (
         <>
-            <LoginContnainer className="login">
+            <LoginContainer className="login">
                 {/*TODO: add style annd loading */}
                 {error && (
-                    <p>
-                        Sua credenciais estao
+                    <p className="style-error">
+                        Sua credenciais estão
                         erradas! tente novamente
                     </p>
                 )}
@@ -149,16 +149,20 @@ const Login = props => {
                     </Button>
                 </Form>
 
-                <p>
-                    <strong>
-                        ainda nao tem conta, faça
-                        o{' '}
-                        <NavLink to="/register">
-                            registo aqui
-                        </NavLink>
-                    </strong>
-                </p>
-            </LoginContnainer>
+                <div className="style-link">
+                    <p>
+                        Ainda não tem conta,{' '}
+                        <strong>
+                            <NavLink
+                                to="/register"
+                                className="link"
+                            >
+                                Registe aqui..
+                            </NavLink>
+                        </strong>
+                    </p>
+                </div>
+            </LoginContainer>
         </>
     );
 };

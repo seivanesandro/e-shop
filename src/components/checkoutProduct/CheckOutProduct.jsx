@@ -10,7 +10,6 @@ import { IoMdRemoveCircleOutline } from 'react-icons/io';
 
 const CheckoutProductContainer = styled.div`
     display: block;
-
     margin: 20px auto;
 `;
 const CheckoutProductImage = styled.img`
@@ -65,8 +64,11 @@ const CheckoutProductRating = styled.div`
 `;
 
 const CheckoutProductPrice = styled.p`
-    font-size: 1.7rem;
-    font-weight: 500;
+    &.checkout-product-price {
+        font-size: 1.7rem;
+        font-weight: 500;
+        margin-left: 0.9rem;
+    }
 `;
 
 const CheckOutProduct = ({
@@ -86,7 +88,7 @@ const CheckOutProduct = ({
             id: id
         });
         //FIXME: erase for deploy
-        alert('Produto removido');
+        //alert('Produto removido');
     };
     //test remove function from cart
     console.log(state);
@@ -114,12 +116,16 @@ const CheckOutProduct = ({
                             ))}
                     </CheckoutProductRating>
                     <CheckoutProductPrice
-                        className="checkout-product-price"
+                        className={
+                         price < 200
+                                    ? 'price-card-product-promotion'
+                                    : 'checkout-product-price'
+                        }
                         style={{
                             fontWeight: 600
                         }}
                     >
-                        Price: {price}
+                        {price}
                         <small>€</small>
                     </CheckoutProductPrice>
                     <Button

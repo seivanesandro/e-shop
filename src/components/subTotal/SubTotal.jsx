@@ -8,6 +8,9 @@ import styled, {
 import { devices } from '../../utils/constantes';
 import { useStateValue } from '../../hooks/StateProvider';
 import { getBasketTotal } from '../../hooks/reducer';
+import {
+    useNavigate
+} from 'react-router-dom';
 
 const Show = keyframes`
      0%{
@@ -87,6 +90,12 @@ const CurrentFormatStyle = styled.h2`
 `;
 
 const SubTotal = props => {
+    const pagePay = useNavigate();
+
+    const paymentPage = () => {
+        alert('Atention Payment Page on Constructor')
+        pagePay('/pay')
+    }
     // eslint-disable-next-line no-unused-vars
     const [{ basket }, dispatch] =
         useStateValue();
@@ -149,6 +158,7 @@ const SubTotal = props => {
                         <Button
                             variant="dark"
                             className="btn-card-product"
+                            onClick={paymentPage}
                         >
                             Pay
                         </Button>

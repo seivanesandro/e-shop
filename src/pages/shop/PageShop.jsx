@@ -14,11 +14,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase/Firebase';
 import { devices } from '../../utils/constantes';
 
+const ContainerPageShop = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 5rem 10rem;
+
+    @media only screen and (${devices.portatil}) {
+        margin: 3rem auto !important;
+    }
+`;
+
 const ContainerUser = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    padding: 2rem 10rem 0 0;
 `;
 
 const UserLog = styled.div`
@@ -69,7 +81,7 @@ const PageShop = props => {
     const [user] = useAuthState(auth);
 
     return (
-        <div id="pageshop">
+        <ContainerPageShop id="pageshop">
             <ContainerUser className="container-user">
                 {user ? (
                     <UserLog className="user-log">
@@ -86,7 +98,6 @@ const PageShop = props => {
                     </div>
                 )}
             </ContainerUser>
-            <div>Store</div>
             <ContainerProduct className="container-products-one">
                 {' '}
                 {productOne.map(product => {
@@ -141,7 +152,7 @@ const PageShop = props => {
                     );
                 })}
             </ContainerProduct>
-        </div>
+        </ContainerPageShop>
     );
 };
 
