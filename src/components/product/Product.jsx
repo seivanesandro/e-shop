@@ -59,14 +59,14 @@ const Product = ({
                     </Card.Title>
 
                     <div className="main-card-product">
-                        <Card.Text className="body-card-product">
+                        <Card.Text className="card-rating-product">
                             {Array(rating)
                                 .fill()
                                 .map((_, i) => (
                                     <MdStarRate
                                         key={i}
                                         color="gold"
-                                        size="25"
+                                        size="23"
                                     />
                                 ))}
                         </Card.Text>

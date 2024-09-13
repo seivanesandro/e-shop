@@ -60,14 +60,21 @@ const CheckoutProductTitle = styled.p`
 const CheckoutProductRating = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.3rem;
 `;
 
 const CheckoutProductPrice = styled.p`
     &.checkout-product-price {
-        font-size: 1.7rem;
+        font-size: 1.2rem;
         font-weight: 500;
-        margin-left: 0.9rem;
+    }
+    &.price-promotion-checkout-product-promotion {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        background: green;
+        padding: 0.1rem 0.5rem;
+        border-radius: 16px;
     }
 `;
 
@@ -118,7 +125,7 @@ const CheckOutProduct = ({
                     <CheckoutProductPrice
                         className={
                             price < 200
-                                ? 'price-card-product-promotion'
+                                ? 'price-promotion-checkout-product-promotion'
                                 : 'checkout-product-price'
                         }
                         style={{

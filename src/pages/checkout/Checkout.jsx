@@ -99,25 +99,42 @@ const ContainerUser = styled.div`
     @media only screen and (${devices.iphone14}) {
         align-items: center;
         justify-content: center;
+        padding: 2rem 0 0 2rem;
     }
     @media only screen and (${devices.mobileG}) {
         align-items: center;
         justify-content: center;
+        padding: 2rem 0 0 2rem;
     }
     @media only screen and (${devices.mobileM}) {
         align-items: center;
         justify-content: center;
+        padding: 2rem 0 0 2rem;
     }
     @media only screen and (${devices.mobileP}) {
         align-items: center;
         justify-content: center;
+        padding: 2rem 0 0 1rem;
     }
 `;
 
 const UserLog = styled.div`
-    color: #ffd200;
+    color: #f7971e;
     font-weight: 600;
     font-size: 1.5rem;
+
+    @media only screen and (${devices.iphone14}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileG}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileM}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileP}) {
+        font-size: 1.1rem;
+    }
 `;
 
 const CheckOutRight = styled.div`
@@ -161,7 +178,7 @@ const Checkout = props => {
                     className="checkout-ad"
                 />
                 <ContainerUser className="container-user">
-                    ACCOUNT:
+                    
                     {user ? (
                         <UserLog className="user-log">
                             {user.email}
@@ -180,7 +197,7 @@ const Checkout = props => {
                 </ContainerUser>
                 <CheckoutContainerMain className="checkout-container-main">
                     <CheckOutLeft className="checkout-left">
-                        <h2>Your Shop List</h2>
+                        <h2>Your List</h2>
                         <CheckOutBody className="checkout-body">
                             {basket.map(
                                 product => {

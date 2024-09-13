@@ -19,6 +19,14 @@ body {
     overflow-y: auto !important;
 }
 
+h1,h2,h3,h4,h5,h6{
+    color: #F7971E;
+    text-shadow: 0 0 0.1rem black;
+    font-weight: 600;
+    letter-spacing: 0.5rem;
+    text-align: center;
+}
+
 /*Navbar*/
 .search-style {
     color: #ffd200 !important;
@@ -105,21 +113,21 @@ body {
     flex-direction: row;
     align-items: baseline;
 }
-.body-card-product {
+.card-rating-product {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.2rem;
+    gap: 0.1rem;
 }
 
 .price-card-product {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-left: 0.9rem;
 }
 
 .price-card-product-promotion {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: 600;
     margin-left: 0.9rem;
     color: #fff;
@@ -203,5 +211,14 @@ body {
 
     .style-link {
         font-size: 0.7rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+       margin-left: 2rem;
     }
 }

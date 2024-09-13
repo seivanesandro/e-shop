@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import { devices } from '../../utils/constantes';
+import { MdEmail } from 'react-icons/md';
 
 const RegisterContainer = styled.div`
     background: #333;
@@ -36,6 +37,10 @@ const RegisterContainer = styled.div`
     @media only screen and (${devices.mobileP}) {
         padding: 10rem 0.5rem 10rem 0.5rem;
     }
+`;
+
+const RegisterTitle = styled.h2`
+    color: #ffd200 !important;
 `;
 
 const Register = props => {
@@ -84,7 +89,7 @@ const Register = props => {
                         mais tarde!
                     </p>
                 )}
-                <h2>Register</h2>
+                <RegisterTitle>Register</RegisterTitle>
                 <Form data-bs-theme="light">
                     <Form.Group
                         className="mb-3"
@@ -141,14 +146,19 @@ const Register = props => {
                             label="Check me out"
                         />
                     </Form.Group>
-                    <Button
-                        variant="warning"
-                        className="btn-card-product"
-                        type="submit"
-                        onClick={registerLogin}
-                    >
-                        Register
-                    </Button>
+                    <Form.Group className="d-flex flex-column gap-4 align-items-center justify-content-center">
+                        <Button
+                            variant="warning"
+                            className="btn-card-product"
+                            type="submit"
+                            onClick={
+                                registerLogin
+                            }
+                        >
+                            register with{' '}
+                            <MdEmail size="26" />
+                        </Button>
+                    </Form.Group>
                 </Form>
                 <p className="style-link">
                     Tem conta, faça aqui o seu{' '}

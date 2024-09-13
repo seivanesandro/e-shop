@@ -14,6 +14,10 @@ import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import { devices } from '../../utils/constantes';
+import { MdEmail } from 'react-icons/md';
+import { FcGoogle } from 'react-icons/fc';
+
+import LoginGoogle from './LoginGoogle';
 
 const LoginContainer = styled.div`
     background: #333;
@@ -39,12 +43,16 @@ const LoginContainer = styled.div`
     }
 `;
 
+const LoginTitle = styled.h2`
+    color: #ffd200 !important;
+`;
+
 const Login = props => {
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    //TODO: add style annd loading
+    //TODO: add style and loading
 
     const signIn = async e => {
         e.preventDefault();
@@ -72,6 +80,8 @@ const Login = props => {
             });
     };
 
+
+
     return (
         <>
             <LoginContainer className="login">
@@ -82,7 +92,7 @@ const Login = props => {
                         erradas! tente novamente
                     </p>
                 )}
-                <h2>Login</h2>
+                <LoginTitle>Login</LoginTitle>
                 <Form data-bs-theme="light">
                     <Form.Group
                         className="mb-3"
@@ -139,14 +149,23 @@ const Login = props => {
                             label="Check me out"
                         />
                     </Form.Group>
-                    <Button
-                        variant="warning"
-                        className="btn-card-product"
-                        type="submit"
-                        onClick={signIn}
-                    >
-                        Login
-                    </Button>
+                    <Form.Group className="d-flex flex-column gap-4 align-items-center justify-content-center">
+                        <Button
+                            variant="warning"
+                            className="btn-card-product"
+                            type="submit"
+                            onClick={signIn}
+                        >
+                            Login with{' '}
+                            <MdEmail size="26" />
+                        </Button>
+
+                        <LoginGoogle
+                            icon={
+                                <FcGoogle size="26" />
+                            }
+                        />
+                    </Form.Group>
                 </Form>
 
                 <div className="style-link">

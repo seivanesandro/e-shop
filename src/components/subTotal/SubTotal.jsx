@@ -66,7 +66,7 @@ const SubTotalContainer = styled.div`
     }
 `;
 
-const CurrentFormatStyle = styled.h2`
+const CurrentFormatStyle = styled.p`
     font-weight: 500;
     font-size: 2rem;
     display: flex;
@@ -103,7 +103,7 @@ const SubTotal = props => {
         <>
             {basket.length === 0 ? (
                 <>
-                    <h2>no items in basket</h2>
+                    <h2>No items</h2>
                 </>
             ) : (
                 <>

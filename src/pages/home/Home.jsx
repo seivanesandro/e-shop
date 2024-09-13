@@ -5,6 +5,7 @@ import styled, {
 } from 'styled-components';
 import Hero from '../../assets/hero.jpg';
 import Product from '../../components/product/Product';
+import Loading from '../../components/common/load/Loading';
 import {
     productOne,
     productTwo,
@@ -38,6 +39,13 @@ const ShowAd = keyframes`
     }
 `;
 
+const ContainerLoading = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+`;
+
 const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -69,29 +77,42 @@ const ContainerUser = styled.div`
     @media only screen and (${devices.iphone14}) {
         align-items: center;
         justify-content: center;
-        margin: 2rem 2rem;
+        padding: 2rem 0 0 2rem;
     }
     @media only screen and (${devices.mobileG}) {
         align-items: center;
         justify-content: center;
-        margin: 2rem 2rem;
+        padding: 2rem 0 0 2rem;
     }
     @media only screen and (${devices.mobileM}) {
         align-items: center;
         justify-content: center;
-        padding: 2rem 0rem;
+        padding: 2rem 0 0 2rem;
     }
     @media only screen and (${devices.mobileP}) {
         align-items: center;
         justify-content: center;
-        padding: 2rem 0rem;
+        padding: 2rem 0 0 1rem;
     }
 `;
 
-const UserLog = styled.div`
-    color: #ffd200;
+const UserLog = styled.p`
+    color: #f7971e;
     font-weight: 600;
     font-size: 1.5rem;
+    
+    @media only screen and (${devices.iphone14}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileG}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileM}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileP}) {
+        font-size: 1.1rem;
+    }
 `;
 
 const HomeRowContainer = styled.div`
@@ -228,6 +249,21 @@ const Home = props => {
                     <HomeRowContainer className="home-row-container">
                         <h1>E-SHOP</h1>
                         <HomeRow className="home-row">
+                            {randomDataOne.length ===
+                                0 &&
+                                randomDataTwo.length ===
+                                    0 && (
+                                    <ContainerLoading className="container-loading">
+                                        <Loading
+                                            speedborder={
+                                                1
+                                            }
+                                            size={
+                                                5
+                                            }
+                                        />
+                                    </ContainerLoading>
+                                )}
                             {randomDataOne.map(
                                 product => {
                                     return (
@@ -289,6 +325,19 @@ const Home = props => {
                     <HomeRowContainer className="home-row-container">
                         <h1>PROMOTIONS OF DAY</h1>
                         <HomeRow className="home-row">
+                            {randomDataPRomotion.length ===
+                                0  && (
+                                    <ContainerLoading className="container-loading">
+                                        <Loading
+                                            speedborder={
+                                                1
+                                            }
+                                            size={
+                                                5
+                                            }
+                                        />
+                                    </ContainerLoading>
+                                )}
                             {randomDataPRomotion.map(
                                 product => {
                                     return (

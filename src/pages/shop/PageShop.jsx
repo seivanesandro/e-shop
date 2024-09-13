@@ -13,6 +13,7 @@ import Product from '../../components/product/Product';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase/Firebase';
 import { devices } from '../../utils/constantes';
+import Loading from '../../components/common/load/Loading';
 
 const ContainerPageShop = styled.div`
     display: flex;
@@ -31,12 +32,50 @@ const ContainerUser = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+
+    @media only screen and (${devices.tablet}) {
+        align-items: center;
+        justify-content: center;
+    }
+    @media only screen and (${devices.iphone14}) {
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0 0 2rem;
+    }
+    @media only screen and (${devices.mobileG}) {
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0 0 2rem;
+    }
+    @media only screen and (${devices.mobileM}) {
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0 0 2rem;
+    }
+    @media only screen and (${devices.mobileP}) {
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0 0 1rem;
+    }
 `;
 
 const UserLog = styled.div`
-    color: #ffd200;
+    color: #f7971e;
     font-weight: 600;
     font-size: 1.5rem;
+
+    @media only screen and (${devices.iphone14}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileG}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileM}) {
+        font-size: 1.1rem;
+    }
+    @media only screen and (${devices.mobileP}) {
+        font-size: 1.1rem;
+    }
 `;
 
 const ContainerProduct = styled.div`
@@ -77,6 +116,13 @@ const ContainerProduct = styled.div`
     }
 `;
 
+const ContainerLoading = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+`;
+
 const PageShop = props => {
     const [user] = useAuthState(auth);
 
@@ -100,6 +146,16 @@ const PageShop = props => {
             </ContainerUser>
             <ContainerProduct className="container-products-one">
                 {' '}
+                {productOne.length === 0 &&
+                    productTwo.length === 0 &&
+                    productThree.length === 0 && (
+                        <ContainerLoading className="container-loading">
+                            <Loading
+                                speedborder={1}
+                                size={5}
+                            />
+                        </ContainerLoading>
+                    )}
                 {productOne.map(product => {
                     return (
                         <Product
