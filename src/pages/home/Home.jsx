@@ -14,7 +14,9 @@ import {
 import { devices } from '../../utils/constantes';
 import { v4 as uuidv4 } from 'uuid';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase/Firebase';
+import {
+    auth
+} from '../../firebase/Firebase';
 
 const Show = keyframes`
     0%{
@@ -100,7 +102,7 @@ const UserLog = styled.p`
     color: #f7971e;
     font-weight: 600;
     font-size: 1.5rem;
-    
+
     @media only screen and (${devices.iphone14}) {
         font-size: 1.1rem;
     }
@@ -230,19 +232,17 @@ const Home = props => {
                             {user ? (
                                 <UserLog className="user-log">
                                     Bem-vindo,{' '}
-                                    {user.email}!
+                                    {user.displayName ||
+                                        user.email}
+                                    !
                                 </UserLog>
                             ) : (
-                                <div
-                                    className="user-logout"
+                                <p
                                     style={{
                                         visibility:
                                             'hidden'
                                     }}
-                                >
-                                    Você não está
-                                    logado.
-                                </div>
+                                ></p>
                             )}
                         </ContainerUser>
                     </HomeHero>
@@ -326,18 +326,16 @@ const Home = props => {
                         <h1>PROMOTIONS OF DAY</h1>
                         <HomeRow className="home-row">
                             {randomDataPRomotion.length ===
-                                0  && (
-                                    <ContainerLoading className="container-loading">
-                                        <Loading
-                                            speedborder={
-                                                1
-                                            }
-                                            size={
-                                                5
-                                            }
-                                        />
-                                    </ContainerLoading>
-                                )}
+                                0 && (
+                                <ContainerLoading className="container-loading">
+                                    <Loading
+                                        speedborder={
+                                            1
+                                        }
+                                        size={5}
+                                    />
+                                </ContainerLoading>
+                            )}
                             {randomDataPRomotion.map(
                                 product => {
                                     return (

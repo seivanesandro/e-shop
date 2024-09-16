@@ -80,8 +80,6 @@ const Login = props => {
             });
     };
 
-
-
     return (
         <>
             <LoginContainer className="login">

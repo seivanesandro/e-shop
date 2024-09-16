@@ -89,7 +89,9 @@ const Register = props => {
                         mais tarde!
                     </p>
                 )}
-                <RegisterTitle>Register</RegisterTitle>
+                <RegisterTitle>
+                    Register
+                </RegisterTitle>
                 <Form data-bs-theme="light">
                     <Form.Group
                         className="mb-3"

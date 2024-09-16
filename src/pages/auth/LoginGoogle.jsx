@@ -1,17 +1,18 @@
 import React from 'react';
 //import PropTypes from 'prop-types'
-import {
-    useNavigate
-} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import {
     signInWithPopup,
     GoogleAuthProvider
 } from 'firebase/auth';
-import { authGoogle, provider } from '../../firebase/Firebase';
+import {
+    authGoogle,
+    provider
+} from '../../firebase/Firebase';
 
-const LoginGoogle = ({icon}) => {
-   const history = useNavigate();
+const LoginGoogle = ({ icon }) => {
+    const history = useNavigate();
 
     const signInGoogle = async e => {
         await signInWithPopup(
@@ -32,9 +33,11 @@ const LoginGoogle = ({icon}) => {
                 // eslint-disable-next-line no-unused-vars
                 const user = result.user;
                 //console.log(user);
-                 
-                 history('/');
-                 alert(`Olá ${user.email}, bem-vindo!`);
+
+                history('/');
+                alert(
+                    `Olá ${user.displayName}, bem-vindo!`
+                );
             })
             .catch(error => {
                 // Handle Errors here.

@@ -10,7 +10,9 @@ import { devices } from '../../utils/constantes';
 import { useStateValue } from '../../hooks/StateProvider';
 import { v4 as uuidv4 } from 'uuid';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase/Firebase';
+import {
+    auth
+} from '../../firebase/Firebase';
 
 const Show = keyframes`
     0%{
@@ -178,21 +180,20 @@ const Checkout = props => {
                     className="checkout-ad"
                 />
                 <ContainerUser className="container-user">
-                    
                     {user ? (
                         <UserLog className="user-log">
-                            {user.email}
+                            Bem-vindo,{' '}
+                            {user.displayName ||
+                                user.email}
+                            !
                         </UserLog>
                     ) : (
-                        <div
-                            className="user-logout"
+                        <p
                             style={{
                                 visibility:
                                     'hidden'
                             }}
-                        >
-                            Você não está logado.
-                        </div>
+                        ></p>
                     )}
                 </ContainerUser>
                 <CheckoutContainerMain className="checkout-container-main">

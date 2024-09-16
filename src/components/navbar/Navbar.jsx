@@ -15,7 +15,9 @@ import {
 } from 'react-router-dom';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase/Firebase';
+import {
+    auth 
+} from '../../firebase/Firebase';
 import { signOut } from 'firebase/auth';
 import { useStateValue } from '../../hooks/StateProvider';
 
@@ -32,7 +34,12 @@ function HeaderNavBar() {
                 // Log de sucesso ou redirecionamento para a página de login
                 navigatelougout('/login');
                 //FIXME: erase for deploy
-                alert(`Até breve, ${user.email}`);
+                alert(
+                    `Até breve, ${
+                        user.displayName ||
+                        user.email
+                    }`
+                );
                 console.log(
                     'Logout realizado com sucesso'
                 );
