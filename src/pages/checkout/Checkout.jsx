@@ -185,7 +185,6 @@ const Checkout = props => {
                             Bem-vindo,{' '}
                             {user.displayName ||
                                 user.email}
-                            !
                         </UserLog>
                     ) : (
                         <p

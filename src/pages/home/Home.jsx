@@ -234,7 +234,6 @@ const Home = props => {
                                     Bem-vindo,{' '}
                                     {user.displayName ||
                                         user.email}
-                                    !
                                 </UserLog>
                             ) : (
                                 <p
