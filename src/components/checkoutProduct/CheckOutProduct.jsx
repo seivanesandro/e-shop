@@ -10,7 +10,7 @@ import { IoMdRemoveCircleOutline } from 'react-icons/io';
 
 const CheckoutProductContainer = styled.div`
     display: block;
-    margin: 20px auto;
+    margin: 20px 1rem;
 `;
 const CheckoutProductImage = styled.img`
     object-fit: contain;

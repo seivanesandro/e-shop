@@ -103,18 +103,23 @@ const ContainerProduct = styled.div`
     @media only screen and (${devices.tablet}) {
         justify-content: center;
         margin: 3rem 1rem;
+        gap: 4rem;
     }
     @media only screen and (${devices.iphone14}) {
         margin: 3rem 1rem;
+        gap: 5rem;
     }
     @media only screen and (${devices.mobileG}) {
         margin: 3rem 1rem;
+        gap: 5rem;
     }
     @media only screen and (${devices.mobileM}) {
         margin: 3rem 1rem;
+        gap: 5rem;
     }
     @media only screen and (${devices.mobileP}) {
         margin: 3rem 1rem;
+        gap: 5rem;
     }
 `;
 

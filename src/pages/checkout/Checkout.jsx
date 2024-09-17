@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import PropTypes from 'prop-types'
 import CheckOutProduct from '../../components/checkoutProduct/CheckOutProduct';
 //import SubTotal from '../../components/subTotal/SubTotal';
@@ -13,6 +13,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import {
     auth
 } from '../../firebase/Firebase';
+import {
+    sendPasswordResetEmail
+} from 'firebase/auth';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/esm/Button';
+import { MdEmail } from 'react-icons/md';
 
 const Show = keyframes`
     0%{
@@ -40,7 +46,7 @@ const ShowAd = keyframes`
 const CheckOutContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 0;
     background-color: white;
     height: max-content;
     padding-top: 1rem;
@@ -67,32 +73,56 @@ const CheckoutContainerMain = styled.div`
     }
     @media only screen and (${devices.iphone14}) {
         flex-direction: column;
+        align-items: center;
     }
     @media only screen and (${devices.mobileG}) {
         flex-direction: column;
+        align-items: center;
     }
     @media only screen and (${devices.mobileM}) {
         flex-direction: column;
+        align-items: center;
     }
     @media only screen and (${devices.mobileP}) {
         flex-direction: column;
+        align-items: center;
     }
 `;
 
 const CheckOutLeft = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 7rem;
     animation: ${Show} 1.1s ease-in-out;
+
+    @media only screen and (${devices.iphone14}) {
+        align-items: center;
+    }
+    @media only screen and (${devices.mobileG}) {
+        align-items: center;
+    }
+    @media only screen and (${devices.mobileM}) {
+        align-items: center;
+    }
+    @media only screen and (${devices.mobileP}) {
+        align-items: center;
+    }
 `;
 
 const ContainerUser = styled.div`
+    background: #333;
+    color: #fff;
     display: flex;
-    justify-content: center;
-    padding: 2rem 10rem 0 0;
-    align-items: baseline;
-    flex-direction: row;
-    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
     font-weight: 600;
+
+    padding: 5rem 0.5rem 3rem 0.5rem;
+    border-bottom: 1px solid #c1c1c1;
+    border-top: 1px solid #c1c1c1;
 
     @media only screen and (${devices.tablet}) {
         align-items: center;
@@ -101,22 +131,31 @@ const ContainerUser = styled.div`
     @media only screen and (${devices.iphone14}) {
         align-items: center;
         justify-content: center;
-        padding: 2rem 0 0 2rem;
+        padding: 5rem 0.7rem 3rem 0.7rem;
     }
     @media only screen and (${devices.mobileG}) {
         align-items: center;
         justify-content: center;
-        padding: 2rem 0 0 2rem;
+        padding: 5rem 0.7rem 3rem 0.7rem;
     }
     @media only screen and (${devices.mobileM}) {
         align-items: center;
         justify-content: center;
-        padding: 2rem 0 0 2rem;
+        padding: 5rem 0.7rem 3rem 0.7rem;
     }
     @media only screen and (${devices.mobileP}) {
         align-items: center;
         justify-content: center;
-        padding: 2rem 0 0 1rem;
+        padding: 5rem 0.7rem 3rem 0.7rem;
+        font-size: 0.9rem !important;
+    }
+`;
+
+const UserLogTitle = styled.span`
+    color: #fff;
+
+    @media only screen and (${devices.mobileG}) {
+       display: none;
     }
 `;
 
@@ -141,27 +180,27 @@ const UserLog = styled.div`
 
 const CheckOutRight = styled.div`
     display: block;
-    margin: 5rem 0;
+    margin: 0.5rem 0;
 
     @media only screen and (${devices.iphone14}) {
-        margin: 5rem 0;
+        margin: 5rem 1.5rem;
     }
     @media only screen and (${devices.mobileG}) {
-        margin: 5rem 0;
+        margin: 5rem 1.5rem;
     }
     @media only screen and (${devices.mobileM}) {
-        margin: 5rem 0;
+        margin: 5rem 1rem;
     }
     @media only screen and (${devices.mobileP}) {
-        margin: 5rem 0;
+        margin: 5rem 1rem;
     }
 `;
 
 const CheckOutBody = styled.div`
     display: flex;
-    gap: 7rem;
+    gap: 8rem;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 `;
 
 const Checkout = props => {
@@ -170,6 +209,28 @@ const Checkout = props => {
         useStateValue();
 
     const [user] = useAuthState(auth);
+
+    const [email, setEmail] = useState(user.email);
+    const [ error, setError] = useState(null)
+    const [ load, setLoad] = useState(null);
+
+    const resetPasswordByEmail = async e => {
+        e.preventDefault();
+
+        await sendPasswordResetEmail(auth, email)
+            .then(() => {
+               setLoad(
+                   'email enviado para recuperaçao de password'
+               );
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                setError(errorCode);
+                setError(errorMessage);
+            });
+    };
 
     return (
         <>
@@ -182,7 +243,9 @@ const Checkout = props => {
                 <ContainerUser className="container-user">
                     {user ? (
                         <UserLog className="user-log">
-                            Bem-vindo,{' '}
+                            <UserLogTitle>
+                                Email address:{' '}
+                            </UserLogTitle>
                             {user.displayName ||
                                 user.email}
                         </UserLog>
@@ -194,6 +257,69 @@ const Checkout = props => {
                             }}
                         ></p>
                     )}
+
+                    <Form data-bs-theme="light">
+                        <Form.Group
+                            className="mb-3 d-flex flex-column gap-3"
+                            controlId="formBasicEmail"
+                        >
+                            <Form.Label>
+                                Alterar password por email
+                            </Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email to change password"
+                                value={email}
+                                disabled
+                                onChange={e =>
+                                    setEmail(
+                                        e.target
+                                            .value
+                                    )
+                                }
+                            />
+                            <Form.Text
+                                style={{
+                                    color: '#FFD200'
+                                }}
+                            >
+                                We'll never share
+                                your email with
+                                anyone else.
+                            </Form.Text>
+                            <Button
+                                data-bs-theme="light"
+                                variant="warning"
+                                className="btn-recovery-password"
+                                type="submit"
+                                onClick={
+                                    resetPasswordByEmail
+                                }
+                            >
+                               Alterar a sua Password{' '}
+                                <MdEmail size="26" />
+                            </Button>
+
+                            {!load && error && (
+                                <p className="style-error">
+                                    Algo correu
+                                    mal, por favor
+                                    verifique o
+                                    email e tente
+                                    novamente
+                                </p>
+                            )}
+                            {load && (
+                                <p className="style-load">
+                                    Email de
+                                    recuperação
+                                    enviado,
+                                    verifique o
+                                    seu email
+                                </p>
+                            )}
+                        </Form.Group>
+                    </Form>
                 </ContainerUser>
                 <CheckoutContainerMain className="checkout-container-main">
                     <CheckOutLeft className="checkout-left">

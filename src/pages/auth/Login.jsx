@@ -4,7 +4,9 @@ import {
     useNavigate
 } from 'react-router-dom';
 
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+    signInWithEmailAndPassword
+} from 'firebase/auth';
 
 import { auth } from '../../firebase/Firebase';
 
@@ -138,6 +140,7 @@ const Login = props => {
                             }
                         />
                     </Form.Group>
+
                     <Form.Group
                         className="mb-3"
                         controlId="formBasicCheckbox"

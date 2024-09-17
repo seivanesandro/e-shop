@@ -69,7 +69,7 @@ const Register = props => {
             })
             .catch(error => {
                 alert(
-                    'Algo correu mal, por favor tennta mais tarde!'
+                    'Algo correu mal, por favor tente mais tarde!'
                 );
                 console.error(
                     'Error registering user:',

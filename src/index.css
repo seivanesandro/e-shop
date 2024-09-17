@@ -177,7 +177,12 @@ h6 {
 }
 
 .style-error {
-    color: #ffd200;
+    color: red;
+    text-decoration: none;
+}
+
+.style-load {
+    color: rgb(27, 184, 27);
     text-decoration: none;
 }
 
