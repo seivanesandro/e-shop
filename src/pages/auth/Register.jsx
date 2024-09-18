@@ -13,6 +13,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import { devices } from '../../utils/constantes';
 import { MdEmail } from 'react-icons/md';
+import LoginGoogle from './LoginGoogle';
 
 const RegisterContainer = styled.div`
     background: #333;
@@ -22,8 +23,8 @@ const RegisterContainer = styled.div`
     align-items: center;
     gap: 3rem;
 
-    margin: 10rem auto;
-    padding: 10rem 0 10rem 0;
+    margin: 5rem auto !important;
+    padding: 10rem 0 9rem 0;
 
     @media only screen and (${devices.iphone14}) {
         padding: 10rem 0.5rem 10rem 0.5rem;
@@ -160,6 +161,9 @@ const Register = props => {
                             register with{' '}
                             <MdEmail size="26" />
                         </Button>
+                        <LoginGoogle
+                            authwith='register with'
+                        />
                     </Form.Group>
                 </Form>
                 <p className="style-link">
@@ -173,6 +177,25 @@ const Register = props => {
                         </NavLink>
                     </strong>
                 </p>
+                <Form.Text
+                    style={{
+                        color: '#FFD200'
+                    }}
+                >
+                    <p style={{
+                        width: '29rem',
+                        textAlign:'center',
+                        marginTop: '10rem',
+                    }}>
+                        By register you agree to
+                        the eShop Website
+                        Conditions of Use & Sale.
+                        Please see our Privacy
+                        Notice, our Cookies Notice
+                        and our Interest-Based Ads
+                        Notice.
+                    </p>
+                </Form.Text>
             </RegisterContainer>
         </>
     );

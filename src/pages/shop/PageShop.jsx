@@ -11,9 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 import Product from '../../components/product/Product';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {
-    auth
-} from '../../firebase/Firebase';
+import { auth } from '../../firebase/Firebase';
 import { devices } from '../../utils/constantes';
 import Loading from '../../components/common/load/Loading';
 

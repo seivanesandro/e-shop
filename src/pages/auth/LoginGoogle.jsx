@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import {
@@ -11,7 +11,9 @@ import {
     provider
 } from '../../firebase/Firebase';
 
-const LoginGoogle = ({ icon }) => {
+import { FcGoogle } from 'react-icons/fc';
+
+const LoginGoogle = ({ icon, authwith }) => {
     const history = useNavigate();
 
     const signInGoogle = async e => {
@@ -68,12 +70,15 @@ const LoginGoogle = ({ icon }) => {
                 type="submit"
                 onClick={signInGoogle}
             >
-                Login with {icon}
+                {authwith}
+                <FcGoogle size="26" />
             </Button>
         </>
     );
 };
 
-LoginGoogle.propTypes = {};
+LoginGoogle.propTypes = {
+    authwith: PropTypes.string.isRequired,
+};
 
 export default LoginGoogle;

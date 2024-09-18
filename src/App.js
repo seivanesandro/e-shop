@@ -13,6 +13,7 @@ import Register from './pages/auth/Register';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase/Firebase';
 import PageShop from './pages/shop/PageShop';
+import RecoveryPasswordPage from './pages/auth/RecoveryPasswordPage';
 
 function App() {
     const [user] = useAuthState(auth);
@@ -35,6 +36,13 @@ function App() {
                         path="/register"
                         and
                         element={<Register />}
+                    />
+                    <Route
+                        path="/recoverypassword"
+                        and
+                        element={
+                            <RecoveryPasswordPage />
+                        }
                     />
                     <Route
                         path="/shop"

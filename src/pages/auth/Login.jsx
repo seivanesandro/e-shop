@@ -4,9 +4,7 @@ import {
     useNavigate
 } from 'react-router-dom';
 
-import {
-    signInWithEmailAndPassword
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { auth } from '../../firebase/Firebase';
 
@@ -17,8 +15,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import { devices } from '../../utils/constantes';
 import { MdEmail } from 'react-icons/md';
-import { FcGoogle } from 'react-icons/fc';
-
+import { RiLockPasswordLine } from 'react-icons/ri';
 import LoginGoogle from './LoginGoogle';
 
 const LoginContainer = styled.div`
@@ -28,7 +25,7 @@ const LoginContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    margin: 10rem auto;
+    margin: 5rem auto;
     padding: 10rem 0 10rem 0;
 
     @media only screen and (${devices.iphone14}) {
@@ -54,7 +51,11 @@ const Login = props => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    //TODO: add style and loading
+
+    const handleGoToRecoveryButton = () => {
+        history('/recoverypassword');
+
+    }
 
     const signIn = async e => {
         e.preventDefault();
@@ -157,15 +158,23 @@ const Login = props => {
                             type="submit"
                             onClick={signIn}
                         >
-                            Login with{' '}
+                            Signin{'  '}
                             <MdEmail size="26" />
                         </Button>
 
-                        <LoginGoogle
-                            icon={
-                                <FcGoogle size="26" />
+                        <LoginGoogle authwith="Signin " />
+
+                        <Button
+                            variant="warning"
+                            className="btn-card-product"
+                            type="submit"
+                            onClick={
+                                handleGoToRecoveryButton
                             }
-                        />
+                        >
+                            Recovery password{' '}
+                            <RiLockPasswordLine size="24" />
+                        </Button>
                     </Form.Group>
                 </Form>
 
@@ -182,6 +191,27 @@ const Login = props => {
                         </strong>
                     </p>
                 </div>
+                <Form.Text
+                    style={{
+                        color: '#FFD200'
+                    }}
+                >
+                    <p
+                        style={{
+                            width: '29rem',
+                            textAlign: 'center',
+                            marginTop: '10rem'
+                        }}
+                    >
+                        By signing-in you agree to
+                        the eShop Website
+                        Conditions of Use & Sale.
+                        Please see our Privacy
+                        Notice, our Cookies Notice
+                        and our Interest-Based Ads
+                        Notice.
+                    </p>
+                </Form.Text>
             </LoginContainer>
         </>
     );

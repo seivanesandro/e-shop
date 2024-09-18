@@ -149,6 +149,12 @@ h6 {
 
 .btn-card-product {
     width: 17rem;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .btn-card-product:focus {
     outline: #333;
@@ -184,6 +190,10 @@ h6 {
 .style-load {
     color: rgb(27, 184, 27);
     text-decoration: none;
+}
+
+.form-recovery-password{
+    z-index: 100;
 }
 
 /*breakpoints*/

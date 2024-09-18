@@ -15,9 +15,7 @@ import {
 } from 'react-router-dom';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {
-    auth 
-} from '../../firebase/Firebase';
+import { auth } from '../../firebase/Firebase';
 import { signOut } from 'firebase/auth';
 import { useStateValue } from '../../hooks/StateProvider';
 
