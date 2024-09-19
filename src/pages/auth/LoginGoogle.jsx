@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import {
@@ -78,7 +78,7 @@ const LoginGoogle = ({ icon, authwith }) => {
 };
 
 LoginGoogle.propTypes = {
-    authwith: PropTypes.string.isRequired,
+    authwith: PropTypes.string.isRequired
 };
 
 export default LoginGoogle;

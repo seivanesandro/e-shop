@@ -17,9 +17,6 @@ import SubTotal from '../../components/subTotal/SubTotal';
 import RecoveryPassword from '../../components/recoveryPassword/RecoveryPassword';
 import CheckOutProduct from '../../components/checkoutProduct/CheckOutProduct';
 
-
-
-
 const Show = keyframes`
     0%{
         opacity:0;
@@ -209,10 +206,6 @@ const Checkout = props => {
         useStateValue();
 
     const [user] = useAuthState(auth);
-
-    
-
-    
 
     return (
         <>

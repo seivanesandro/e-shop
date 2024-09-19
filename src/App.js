@@ -44,6 +44,11 @@ function App() {
                             <RecoveryPasswordPage />
                         }
                     />
+                    {/*FIXME: <Route
+                        path="/modalpopup"
+                        and
+                        element={<ModalPopUp />}
+                    /> */}
                     <Route
                         path="/shop"
                         and

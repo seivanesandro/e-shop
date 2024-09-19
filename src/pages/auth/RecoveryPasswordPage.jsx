@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import RecoveryPassword from '../../components/recoveryPassword/RecoveryPassword';
 //import PropTypes from 'prop-types'
 
@@ -35,38 +35,39 @@ const LoginTitle = styled.h2`
 `;
 
 const RecoveryPasswordPage = props => {
-  return (
-      <>
-          <RecoveryPasswordContainer>
-              <LoginTitle>
-                  Alterar a password por email
-              </LoginTitle>
-              <RecoveryPassword />
-              <Form.Text
-                  style={{
-                      color: '#FFD200'
-                  }}
-              >
-                  <p
-                      style={{
-                          width: '29rem',
-                          textAlign: 'center',
-                          marginTop: '10rem'
-                      }}
-                  >
-                      By signing-in you agree to
-                      the eShop Website Conditions
-                      of Use & Sale. Please see
-                      our Privacy Notice, our
-                      Cookies Notice and our
-                      Interest-Based Ads Notice.
-                  </p>
-              </Form.Text>
-          </RecoveryPasswordContainer>
-      </>
-  );
-}
+    return (
+        <>
+            <RecoveryPasswordContainer>
+                <LoginTitle>
+                    Alterar a password por email
+                </LoginTitle>
+                <RecoveryPassword />
+                <Form.Text
+                    style={{
+                        color: '#FFD200'
+                    }}
+                >
+                    <p
+                        style={{
+                            width: '29rem',
+                            textAlign: 'center',
+                            marginTop: '10rem'
+                        }}
+                    >
+                        By signing-in you agree to
+                        the eShop Website
+                        Conditions of Use & Sale.
+                        Please see our Privacy
+                        Notice, our Cookies Notice
+                        and our Interest-Based Ads
+                        Notice.
+                    </p>
+                </Form.Text>
+            </RecoveryPasswordContainer>
+        </>
+    );
+};
 
-RecoveryPasswordPage.propTypes = {}
+RecoveryPasswordPage.propTypes = {};
 
-export default RecoveryPasswordPage
+export default RecoveryPasswordPage;

@@ -190,6 +190,20 @@ function HeaderNavBar() {
                                     >
                                         Shop
                                     </NavLink>
+                                    {/*FIXME: to erase after implement modal to components 
+                                    <NavLink
+                                        to="/modalpopup"
+                                        className={({
+                                            isActive
+                                        }) =>
+                                            isActive
+                                                ? 'active nav-Link'
+                                                : 'nav-Link'
+                                        }
+                                        title="modal-popup"
+                                    >
+                                        modal
+                                    </NavLink>*/}
                                     <NavLink
                                         to="/checkout"
                                         className={({

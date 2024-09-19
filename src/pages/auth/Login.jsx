@@ -54,8 +54,7 @@ const Login = props => {
 
     const handleGoToRecoveryButton = () => {
         history('/recoverypassword');
-
-    }
+    };
 
     const signIn = async e => {
         e.preventDefault();
@@ -69,6 +68,7 @@ const Login = props => {
             .then(auth => {
                 //FIXME: erase for deploy
                 alert(`Olá ${email}, bem-vindo!`);
+
                 history('/');
             })
             .catch(error => {

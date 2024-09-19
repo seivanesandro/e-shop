@@ -161,9 +161,7 @@ const Register = props => {
                             register with{' '}
                             <MdEmail size="26" />
                         </Button>
-                        <LoginGoogle
-                            authwith='register with'
-                        />
+                        <LoginGoogle authwith="register with" />
                     </Form.Group>
                 </Form>
                 <p className="style-link">
@@ -182,11 +180,13 @@ const Register = props => {
                         color: '#FFD200'
                     }}
                 >
-                    <p style={{
-                        width: '29rem',
-                        textAlign:'center',
-                        marginTop: '10rem',
-                    }}>
+                    <p
+                        style={{
+                            width: '29rem',
+                            textAlign: 'center',
+                            marginTop: '10rem'
+                        }}
+                    >
                         By register you agree to
                         the eShop Website
                         Conditions of Use & Sale.
