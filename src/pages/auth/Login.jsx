@@ -198,7 +198,7 @@ const Login = props => {
                 >
                     <p
                         style={{
-                            width: '29rem',
+                            width: '19rem',
                             textAlign: 'center',
                             marginTop: '10rem'
                         }}
