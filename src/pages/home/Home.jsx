@@ -3,7 +3,7 @@ import React from 'react';
 import styled, {
     keyframes
 } from 'styled-components';
-import Hero from '../../assets/hero.jpg';
+import newHero from '../../assets/newHero.jpg';
 import Product from '../../components/product/Product';
 import Loading from '../../components/common/load/Loading';
 import {
@@ -56,7 +56,7 @@ const HomeHero = styled.div`
     max-width: 100%;
     width: 100%;
     height: 55rem;
-    background-image: url(${Hero}) !important;
+    background-image: url(${newHero}) !important;
     object-fit: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
@@ -97,9 +97,9 @@ const ContainerUser = styled.div`
 `;
 
 const UserLog = styled.p`
-    color: #f7971e;
+    color: #ffd200;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 
     @media only screen and (${devices.iphone14}) {
         font-size: 1.1rem;

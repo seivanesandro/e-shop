@@ -196,6 +196,16 @@ h6 {
     z-index: 100;
 }
 
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
 /*breakpoints*/
 @media only screen and (max-width: 2560px) {
 }
